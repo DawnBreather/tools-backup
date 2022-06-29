@@ -1,0 +1,63 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  annotations:
+    field.cattle.io/creatorId: user-7p9hq
+  creationTimestamp: "2020-05-24T17:16:27Z"
+  labels:
+    cattle.io/creator: norman
+  name: liquibase-demographics-mdm
+  namespace: staging
+  resourceVersion: "7159684"
+  selfLink: /apis/batch/v1/namespaces/staging/jobs/liquibase-demographics-mdm
+  uid: ab4089f7-0d1c-4ec7-ae73-1095b7fac16d
+spec:
+  backoffLimit: 6
+  completions: 1
+  parallelism: 1
+  selector:
+    matchLabels:
+      controller-uid: ab4089f7-0d1c-4ec7-ae73-1095b7fac16d
+  template:
+    metadata:
+      annotations:
+        cattle.io/timestamp: "2020-05-24T17:16:26Z"
+      creationTimestamp: null
+      labels:
+        controller-uid: ab4089f7-0d1c-4ec7-ae73-1095b7fac16d
+        job-name: liquibase-demographics-mdm
+    spec:
+      containers:
+      - envFrom:
+        - configMapRef:
+            name: liquibase-demographics-mdm-envvar
+            optional: false
+        image: dawnbreather/tmp:liquibase-odms-demographics-mdm
+        imagePullPolicy: IfNotPresent
+        name: liquibase-demographics-mdm
+        resources: {}
+        securityContext:
+          allowPrivilegeEscalation: false
+          capabilities: {}
+          privileged: false
+          readOnlyRootFilesystem: false
+          runAsNonRoot: false
+        stdin: true
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+        tty: true
+      dnsPolicy: ClusterFirst
+      restartPolicy: Never
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30
+status:
+  completionTime: "2020-05-24T17:16:50Z"
+  conditions:
+  - lastProbeTime: "2020-05-24T17:16:50Z"
+    lastTransitionTime: "2020-05-24T17:16:50Z"
+    status: "True"
+    type: Complete
+  failed: 1
+  startTime: "2020-05-24T17:16:27Z"
+  succeeded: 1

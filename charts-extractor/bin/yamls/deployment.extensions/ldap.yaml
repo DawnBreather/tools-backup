@@ -1,0 +1,100 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    deployment.kubernetes.io/revision: "2"
+    kubectl.kubernetes.io/last-applied-configuration: '{"apiVersion":"apps/v1","kind":"Deployment","metadata":{"annotations":{},"labels":{"stack":"odms","tier":"ldap"},"name":"ldap","namespace":"staging"},"spec":{"selector":{"matchLabels":{"stack":"odms","tier":"ldap"}},"template":{"metadata":{"labels":{"stack":"odms","tier":"ldap"}},"spec":{"containers":[{"args":["-c","cp
+      -r /tmp/bootstrap-ldif/* /container/service/slapd/assets/config/bootstrap/ldif/
+      \u0026\u0026 /container/tool/run"],"command":["/bin/bash"],"envFrom":[{"configMapRef":{"name":"config","optional":false}}],"image":"osixia/openldap","imagePullPolicy":"Always","name":"ldap","ports":[{"containerPort":389,"name":"tcp-389","protocol":"TCP"}],"volumeMounts":[{"mountPath":"/tmp/bootstrap-ldif","name":"ldif-schema"}]}],"volumes":[{"configMap":{"defaultMode":511,"items":[{"key":"ldif","path":"50-bootstrap.ldif"}],"name":"schema","optional":false},"name":"ldif-schema"}]}}}}'
+  creationTimestamp: "2020-05-24T18:33:09Z"
+  generation: 2
+  labels:
+    stack: odms
+    tier: ldap
+  name: ldap
+  namespace: staging
+  resourceVersion: "8075343"
+  selfLink: /apis/apps/v1/namespaces/staging/deployments/ldap
+  uid: 91ff5bb9-8c8b-445d-a64b-d25003d1f3da
+spec:
+  progressDeadlineSeconds: 600
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      stack: odms
+      tier: ldap
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      annotations:
+        cattle.io/timestamp: "2020-05-24T18:34:50Z"
+        field.cattle.io/ports: '[[{"containerPort":389,"dnsName":"ldap","hostPort":0,"kind":"ClusterIP","name":"tcp-389","protocol":"TCP","sourcePort":0}]]'
+      creationTimestamp: null
+      labels:
+        stack: odms
+        tier: ldap
+    spec:
+      containers:
+      - args:
+        - -c
+        - cp -r /tmp/bootstrap-ldif/* /container/service/slapd/assets/config/bootstrap/ldif/
+          && /container/tool/run
+        command:
+        - /bin/bash
+        envFrom:
+        - configMapRef:
+            name: ldap-config
+            optional: false
+        image: osixia/openldap
+        imagePullPolicy: Always
+        name: ldap
+        ports:
+        - containerPort: 389
+          name: tcp-389
+          protocol: TCP
+        resources: {}
+        securityContext:
+          capabilities: {}
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+        volumeMounts:
+        - mountPath: /tmp/bootstrap-ldif
+          name: ldif-schema
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30
+      volumes:
+      - configMap:
+          defaultMode: 511
+          items:
+          - key: ldif
+            path: 50-bootstrap.ldif
+          name: ldap-schema
+          optional: false
+        name: ldif-schema
+status:
+  availableReplicas: 1
+  conditions:
+  - lastTransitionTime: "2020-05-24T18:33:09Z"
+    lastUpdateTime: "2020-05-24T18:34:56Z"
+    message: ReplicaSet "ldap-779756bfd9" has successfully progressed.
+    reason: NewReplicaSetAvailable
+    status: "True"
+    type: Progressing
+  - lastTransitionTime: "2020-05-30T05:25:01Z"
+    lastUpdateTime: "2020-05-30T05:25:01Z"
+    message: Deployment has minimum availability.
+    reason: MinimumReplicasAvailable
+    status: "True"
+    type: Available
+  observedGeneration: 2
+  readyReplicas: 1
+  replicas: 1
+  updatedReplicas: 1

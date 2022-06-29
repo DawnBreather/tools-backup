@@ -1,0 +1,30 @@
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    field.cattle.io/creatorId: user-7p9hq
+    field.cattle.io/ipAddresses: "null"
+    field.cattle.io/targetDnsRecordIds: "null"
+    field.cattle.io/targetWorkloadIds: "null"
+  creationTimestamp: "2020-05-24T18:35:17Z"
+  labels:
+    cattle.io/creator: norman
+  name: ldap
+  namespace: staging
+  resourceVersion: "7171105"
+  selfLink: /api/v1/namespaces/staging/services/ldap
+  uid: 01307816-1921-4aa6-8355-49186f6c1cff
+spec:
+  clusterIP: None
+  ports:
+  - name: tcp-389
+    port: 389
+    protocol: TCP
+    targetPort: 389
+  selector:
+    stack: odms
+    tier: ldap
+  sessionAffinity: None
+  type: ClusterIP
+status:
+  loadBalancer: {}

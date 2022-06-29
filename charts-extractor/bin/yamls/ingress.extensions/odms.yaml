@@ -1,0 +1,35 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  annotations:
+    field.cattle.io/creatorId: user-7p9hq
+    field.cattle.io/ingressState: '{"b2Rtcy9zdGFnaW5nL29kbXMudm9rLnRvZGF5Ly84MA==":"","b2Rtcy9zdGFnaW5nL29kbXMudm9rLnRvZGF5Ly9hcGkvODA4Mg==":""}'
+    field.cattle.io/publicEndpoints: '[{"addresses":["10.6.217.156","10.6.222.212","10.6.223.128","10.6.223.76"],"port":80,"protocol":"HTTP","serviceName":"staging:backend","ingressName":"staging:odms","hostname":"odms.vok.today","path":"/api","allNodes":false},{"addresses":["10.6.217.156","10.6.222.212","10.6.223.128","10.6.223.76"],"port":80,"protocol":"HTTP","serviceName":"staging:frontend","ingressName":"staging:odms","hostname":"odms.vok.today","allNodes":false}]'
+  creationTimestamp: "2020-05-24T18:12:45Z"
+  generation: 3
+  labels:
+    cattle.io/creator: norman
+  name: odms
+  namespace: staging
+  resourceVersion: "7502213"
+  selfLink: /apis/extensions/v1beta1/namespaces/staging/ingresses/odms
+  uid: d5839d6b-ea40-4f14-b4a8-01c4d3727ecb
+spec:
+  rules:
+  - host: odms.vok.today
+    http:
+      paths:
+      - backend:
+          serviceName: backend
+          servicePort: 8082
+        path: /api
+      - backend:
+          serviceName: frontend
+          servicePort: 80
+status:
+  loadBalancer:
+    ingress:
+    - ip: 10.6.217.156
+    - ip: 10.6.222.212
+    - ip: 10.6.223.128
+    - ip: 10.6.223.76

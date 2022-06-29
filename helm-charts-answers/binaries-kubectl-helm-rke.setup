@@ -1,0 +1,16 @@
+[Binaries]
+
+> kubectl
+> curl -LO https://storage.googleapis.com/kubernetes-release/release/`curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt`/bin/linux/amd64/kubectl
+chmod +x ./kubectl
+sudo mv ./kubectl /usr/local/bin/kubectl
+
+> rke
+> wget -O rke https://github.com/rancher/rke/releases/download/v0.2.7/rke_linux-amd64
+chmod +x rke
+mv ./rke /usr/bin/
+
+> helm
+> wget -O helm.tar.gz https://get.helm.sh/helm-v2.14.3-linux-amd64.tar.gz
+tar -zxvf helm*
+mv linux-amd64/helm /usr/bin/

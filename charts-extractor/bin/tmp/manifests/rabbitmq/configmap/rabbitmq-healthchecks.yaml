@@ -1,0 +1,38 @@
+apiVersion: v1
+data:
+  rabbitmq-api-check: |-
+    #!/bin/sh
+    set -e
+    URL=$1
+    EXPECTED=$2
+    ACTUAL=$(curl --silent --show-error --fail "${URL}")
+    echo "${ACTUAL}"
+    test "${EXPECTED}" = "${ACTUAL}"
+  rabbitmq-health-check: |-
+    #!/bin/sh
+    START_FLAG=/opt/bitnami/rabbitmq/var/lib/rabbitmq/.start
+    if [ -f ${START_FLAG} ]; then
+        rabbitmqctl node_health_check
+        RESULT=$?
+        if [ $RESULT -ne 0 ]; then
+          rabbitmqctl status
+          exit $?
+        fi
+        rm -f ${START_FLAG}
+        exit ${RESULT}
+    fi
+    rabbitmq-api-check $1 $2
+kind: ConfigMap
+metadata:
+  creationTimestamp: "2019-12-31T12:01:21Z"
+  labels:
+    app: rabbitmq
+    chart: rabbitmq-6.16.0
+    heritage: Tiller
+    io.cattle.field/appId: rabbitmq
+    release: rabbitmq
+  name: rabbitmq-healthchecks
+  namespace: rabbitmq
+  resourceVersion: "19355849"
+  selfLink: /api/v1/namespaces/rabbitmq/configmaps/rabbitmq-healthchecks
+  uid: 42730b16-2bc5-11ea-9852-42010a8000ff

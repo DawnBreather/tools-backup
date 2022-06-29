@@ -1,0 +1,6 @@
+master.adminPassword=admin
+master.ingress.enabled=true
+master.ingress.hostName=jenkins.aws.rcom-bflw.projects.epam.com
+master.ingress.path=/
+master.ingress.tls=idcreator-ssl
+master.serviceType=NodePort

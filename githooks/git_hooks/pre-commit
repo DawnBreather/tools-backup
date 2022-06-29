@@ -1,0 +1,100 @@
+#!/bin/sh
+
+# To make hooks work please adjust git configuration the following way:
+# git config --global core.hooksPath "./git_hooks"
+
+RED='\033[0;31m'
+WHITE='\033[01;37m'
+GREEN='\033[00;32m'
+
+# Check if docker installed
+docker_exists=`which docker | wc -l`
+if [ "$docker_exists" = "0" ]
+then
+    echo "${RED}DOCKER IS NOT INSTALLED IN THE SYSTEM"
+    echo "${RED}CREDENTIALS VIOLATION SCAN CANNOT BE PERFORMED"
+    echo "${WHITE}Windows installer: https://hub.docker.com/editions/community/docker-ce-desktop-windows"
+    echo "Linux installer: https://docs.docker.com/install/linux/docker-ce/ubuntu/"
+    exit 0
+fi
+
+# Getting current path
+p=`pwd`
+
+# Collecting inforamtion about OS
+pc_name=`uname -n`
+full_name=`uname -a`
+os_raw_data=`echo $full_name | sed "s/$pc_name//g"`
+
+os_win=`echo $os_raw_data | grep -c "MINGW"`
+os_wsl=`echo $os_raw_data | grep -c "Microsoft "`
+
+
+# Converting path to docker-readable format according to the OS
+if [ "$os_win" = "1" ]
+then
+    echo $p | sed 's_^\/__' | sed 's_\/_\\_g' | sed 's_^._\0:_' > /tmp/ttm
+    p=`cat /tmp/ttm`
+
+fi
+
+if [ "$os_wsl" = "1" ]
+then
+    p=`wslpath -m $p` 
+fi
+
+# Listing staged files
+files=`git diff --cached --name-status | awk '$1 != "D" { print $2 }'`
+
+cred_alert_output_file=$(mktemp /tmp/cred_alert_out.XXXXXXXXX)
+detect_secrets_output_file=$(mktemp /tmp/detect_secrets_out.XXXXXXXXX)
+
+# Running analysis for credentials violation per each file
+# And saving output into variables 
+for file in $files
+do
+    docker run -v "$p":/home/secrets-audit harbor.aws.rcom-bflw.projects.epam.com/public/cred-alert sh -c "cred-alert scan --regexp-file /etc/cred-alert/regexp -f $file" >> $cred_alert_output_file # || exit 1
+    docker rm `docker ps -l -q` &> /dev/null
+    docker run -v "$p":/home/secrets-audit harbor.aws.rcom-bflw.projects.epam.com/public/cred-alert sh -c "detect-secrets scan $file" >> $detect_secrets_output_file # | grep -c "line_number" && exit 1 || :
+    docker rm `docker ps -l -q` &> /dev/null
+done
+
+# Cleaning and printing the output to the user
+
+tmpfile=$(mktemp /tmp/violations.XXXXXXXXX)
+
+enableOutput=0
+
+cat $detect_secrets_output_file | while read line ; do
+    if [ "$line" = '"results": {' ]
+    then
+        enableOutput=1
+        line=""
+    fi
+
+    if [ `echo "$line" | grep -c 'version.*[0-9]*.[0-9]*.[0-9]*'` = "1" ] #=    '"version": "0.12.5"' ]
+    then
+        enableOutput=0
+    fi
+
+    if [ "$enableOutput" = "1" ]
+        then
+            echo "$line" | sed s/},//g | sed s/{//g | sed s/}//g #| sed s/\[//g | sed s/]//g 
+            echo v >> $tmpfile
+    fi
+done
+
+cat $cred_alert_output_file | while read line ; do
+    if [ `echo "$line" | grep -c '\[CRED\]'` = "1" ]
+        then
+            echo "$line"
+            echo v >> $tmpfile
+    fi
+done
+
+# Printing WARNING in case of detected violations
+if [ `cat $tmpfile | wc -l` != "0" ]
+then
+    printf "\n\n${RED} CREDENTIALS VIOLATION DETECTED. PLEASE READ THE DETAILS ABOVE.\n"
+    exit 1
+fi

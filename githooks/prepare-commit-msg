@@ -1,0 +1,31 @@
+#!/bin/sh
+
+# To make hooks work please adjust git configuration the following way:
+# git config --global core.hooksPath "./git_hooks"
+
+fullname=$(git config --get user.name)
+lnIndex=$(echo -n $fullname | grep -b -o " " | awk 'BEGIN {FS=":"}{print $1}')
+
+FN="$(echo -n $fullname | head -c 1)"
+LN="$(echo -n $fullname | head -c $((lnIndex+2)) | tail -c 1)"
+
+commit_validation_regex='((\[[A-Z]{2}\] ){0,1}(CC-[0-9]+|REDESIGN): \S+)'
+commit_with_initials_regex='(\[[A-Z]{2}\] (CC-[0-9]+|REDESIGN): \S+)'
+
+error_msg_key="Aborting commit. Acceptable options: 'CC-0000: summary', '[FL] CC-0000: summary, REDESIGN: summary', '[FL] REDESIGN: summary'"
+
+generalValidity=`grep -iE "$commit_validation_regex" "$1" | wc -l`
+initialsValidity=`grep -iE "$commit_with_initials_regex" "$1" | wc -l`
+
+if [ "$generalValidity" != "1" ]
+then
+    echo -n "$error_msg_key" >&2
+    exit 1
+fi
+
+if [ "$initialsValidity" != "1" ]
+then
+	echo -n "[$FN$LN] `cat $1`" > $1
+	exit 0
+fi
+      

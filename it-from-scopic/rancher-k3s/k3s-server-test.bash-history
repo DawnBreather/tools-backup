@@ -1,0 +1,144 @@
+    2  htop
+    3  yum install htop
+    4  sudo yum install htop
+    5  htop
+    6  cat /var/lib/rancher/k3s/server/node-token
+    7  sudo cat /var/lib/rancher/k3s/server/node-token
+    8  kubectl list nodes
+    9  kubectl get nodes
+   10  sudo find / -name kubeconfig
+   11  k3s
+   12  k3s check-config
+   13  ls ~/
+   14  ls ~/ -la
+   15  sudo find / -name kubeconfig.yaml
+   16  sudo vi /etc/systemd/system/k3s.service
+   17  sudo systemctl daemon-reload
+   18  sudo systemctl restart k3s
+   19  systemctl status k3s.service
+   20  sudo vi /etc/systemd/system/k3s.service
+   21  sudo systemctl daemon-reload
+   22  sudo systemctl restart k3s
+   23  sudo vi /etc/systemd/system/k3s.service
+   24  sudo systemctl daemon-reload
+   25  sudo systemctl restart k3s
+   26  systemctl status k3s.service
+   27  systemctl status k3s.service -l
+   28  sudo vi /etc/systemd/system/k3s.service
+   29  sudo systemctl daemon-reload
+   30  sudo systemctl restart k3s
+   31  systemctl status k3s.service -l
+   32  sudo vi /etc/systemd/system/k3s.service
+   33  sudo systemctl daemon-reload
+   34  sudo systemctl restart k3s
+   35  sudo find / -name kubeconfig.yaml
+   36  sudo find / -name kubeconfig
+   37  sudo vi /etc/systemd/system/k3s.service.env
+   38  systemctl status k3s.service -l
+   39  sudo find / -name kubeconfig
+   40  sudo find / -name kubeconfig.yaml
+   41  sudo find / -name kubeconfig.yml
+   42  journalctl -u k3s
+   43  ls /etc/rancher/k3s/
+   44  cat /etc/rancher/k3s/k3s.yaml
+   45  export KUBECONFIG=/etc/rancher/k3s/k3s.yaml
+   46  kubectl get nodes
+   47  k3s --version
+   48  kubectl apply -f https://rancher.scopicsoftware.com/v3/import/f7k4x9xgqnvv8rv2r6gcxz8wr4hcx6cw9dd8tb5gdjmmnvp25xnp6b.yaml
+   49  kubectl create -f https://raw.githubusercontent.com/kubernetes/csi-api/release-1.13/pkg/crd/manifests/csinodeinfo.yaml
+   50  kubectl apply -k "github.com/kubernetes-sigs/aws-ebs-csi-driver/deploy/kubernetes/overlays/stable/?ref=master"
+   51  yum install giy -y
+   52  yum install git -y
+   53  sudoyum install git -y
+   54  sudo yum install git -y
+   55  kubectl apply -k "github.com/kubernetes-sigs/aws-ebs-csi-driver/deploy/kubernetes/overlays/stable/?ref=master"
+   56  kubectl get pods -n kube-system
+   57  kubectl get events ebs-csi-controller-7bb9b6cfd7-c9j5r
+   58  kubectl get event --namespace System --field-selector involvedObject.name=ebs-csi-controller-7bb9b6cfd7-c9j5r
+   59  kubectl get event --field-selector involvedObject.name=ebs-csi-controller-7bb9b6cfd7-c9j5r
+   60  kubectl get event --field-selector involvedObject.name=ebs-csi-controller-7bb9b6cfd7-c9j5r --all-namespaces
+   61  helm
+   62  cd
+   63  wget https://get.helm.sh/helm-v3.0.2-linux-amd64.tar.gz
+   64  ls
+   65  tar -zxvf helm-v3.0.2-linux-amd64.tar.gz
+   66  mv linux-amd64/helm /usr/local/bin/
+   67  sudo mv linux-amd64/helm /usr/local/bin/
+   68  helm
+   69  helm install --name aws-ebs-csi-driver     --set enableVolumeScheduling=true     --set enableVolumeResizing=true     --set enableVolumeSnapshot=true     https://github.com/kubernetes-sigs/aws-ebs-csi-driver/releases/download/v0.4.0/helm-chart.tgz
+   70  helm install --help
+   71  wget https://get.helm.sh/helm-v2.16.0-linux-arm64.tar.gz
+   72  ls -l
+   73  tar -zxvf helm-v2.16.0-linux-arm64.tar.gz
+   74  ls -l
+   75  wget https://get.helm.sh/helm-v2.16.0-linux-amd64.tar.gz
+   76  rm -rf *arm*
+   77  ls -l
+   78  tar -xvfz helm-v2.16.0-linux-amd64.tar.gz -C 2.16
+   79  mkdir 2.16
+   80  tar -xvfz helm-v2.16.0-linux-amd64.tar.gz -C 2.16
+   81  tar -xvf helm-v2.16.0-linux-amd64.tar.gz -C 2.16
+   82  2.16/linux-amd64/helm
+   83  2.16/linux-amd64/helm install --name aws-ebs-csi-driver     --set enableVolumeScheduling=true     --set enableVolumeResizing=true     --set enableVolumeSnapshot=true     https://github.com/kubernetes-sigs/aws-ebs-csi-driver/releases/download/v0.4.0/helm-chart.tgz
+   84  helm init
+   85  helm upgrade
+   86  helm install --set enableVolumeScheduling=true     --set enableVolumeResizing=true     --set enableVolumeSnapshot=true     https://github.com/kubernetes-sigs/aws-ebs-csi-driver/releases/download/v0.4.0/helm-chart.tgz
+   87  helm install --generate-name --set enableVolumeScheduling=true     --set enableVolumeResizing=true     --set enableVolumeSnapshot=true     https://github.com/kubernetes-sigs/aws-ebs-csi-driver/releases/download/v0.4.0/helm-chart.tgz
+   88  kubectl get event --field-selector involvedObject.name=ebs-csi-controller-7bb9b6cfd7-c9j5r --all-namespaces
+   89  kubectl get deployments --all-namespaces
+   90  kubectl get pods -n kube-system
+   91  kubectl get event --field-selector involvedObject.name=ebs-csi-node-6lkv5 --all-namespaces
+   92  kubectl get deployments --all-namespaces
+   93  kubectl set image deployment/ebs-csi-controller ebs-plugin=amazon/aws-ebs-csi-driver:v0.4.0
+   94  kubectl set image deployment/ebs-csi-controller ebs-plugin=amazon/aws-ebs-csi-driver:v0.4.0 --all-namespaces
+   95  kubectl set image deployment/ebs-csi-controller ebs-plugin=amazon/aws-ebs-csi-driver:v0.4.0 -n kube-system
+   96  kubectl set image deployment/ebs-csi-controller node-driver-registrar=quay.io/k8scsi/csi-node-driver-registrar:v1.1.0 -n kube-system
+   97  kubectl get deployment --name=ebs-csi-controller
+   98  kubectl get deployment --name=ebs-csi-controller --all-namespace
+   99  kubectl get deployment --name=ebs-csi-controller --all-namespaces
+  100  kubectl get deployment ebs-csi-controller --all-namespaces
+  101  kubectl get deployment ebs-csi-controller -n kube-system
+  102  kubectl get deployment ebs-csi-controller -n kube-system -o yaml
+  103  kubectl set image deployment/ebs-csi-controller csi-provisioner=quay.io/k8scsi/csi-provisioner:v1.3.0 -n kube-system
+  104  kubectl set image deployment/ebs-csi-controller csi-attacher=quay.io/k8scsi/csi-attacher:v1.2.0 -n kube-system
+  105  kubectl set image deployment/ebs-csi-controller liveness-probe=quay.io/k8scsi/livenessprobe:v1.1.0 -n kube-system
+  106  kubectl get deployments --all-namespaces
+  107  git clone https://github.com/kubernetes-sigs/aws-ebs-csi-driver.git
+  108  cd aws-ebs-csi-driver/examples/kubernetes/dynamic-provisioning/
+  109  kubectl apply -f specs/
+  110  kubectl describe storageclass ebs-sc
+  111  kubectl get pods --watch
+  112  kubectl -n kube-system describe configmap aws-auth
+  113  cd
+  114  nano aws-auth
+  115  mv aws-auth aws-auth.yaml
+  116  kubectl apply -k aws-auth.yaml
+  117  kubectl apply -f aws-auth.yaml
+  118  kubectl -n kube-system describe configmap aws-auth
+  119  kubectl patch deployment ebs-csi-controller -n kube-system -p "{\"spec\": {\"template\": {\"metadata\": { \"labels\": {  \"redeploy\": \"$(date +%s)\"}}}}}"
+  120  kubectl get pods --watch
+  121  kubectl get deployments --all-namespaces
+  122  kubectl get deployment ebs-csi-controller -n kube-system -o yaml
+  123  kubectl get deployments --all-namespaces
+  124  kubectl get -o yaml storageclass ebs-sc
+  125  kubectl get -o yaml deployment ebs-csi-controller
+  126  kubectl get -o yaml deployment ebs-csi-controller -n kube-ssytem
+  127  kubectl get -o yaml deployment ebs-csi-controller -n kube-sytem
+  128  kubectl get -o yaml deployment ebs-csi-controller -n kube-system
+  129  kubectl apply -k "github.com/kubernetes-sigs/aws-efs-csi-driver/deploy/kubernetes/overlays/stable/?ref=master"
+  130  kubectl get deployments --all-namespaces
+  131  kubectl get daemonsets --all-namespaces
+  132  kubectl get daemonset ebs-csi-node -o yaml -n kube-system
+  133  kubectl get daemonset efs-csi-node -o yaml -n kube-system
+  134  sudo yum install screen -y
+  135  screen
+  136  history
+  137  htop
+  138  netstat -lntp
+  139  sudo netstat -lntp
+  140  sudo netstat -lnup
+  141  exit
+  142  sudo cat /etc/systemd/system/k3s.service
+  143  sudo vi /etc/systemd/system/k3s.service
+  144  exit
+  145  history

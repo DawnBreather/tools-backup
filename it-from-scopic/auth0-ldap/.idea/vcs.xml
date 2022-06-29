@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="VcsDirectoryMappings">
+    <mapping directory="$PROJECT_DIR$/src/endpoint" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/endpoint/src/github.com/PuerkitoBio/rehttp" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/endpoint/src/github.com/gadelkareem/cachita" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/endpoint/src/github.com/gocarina/gocsv" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/endpoint/src/github.com/konsorten/go-windows-terminal-sequences" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/endpoint/src/github.com/mediocregopher/radix" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/endpoint/src/github.com/openlyinc/pointy" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/endpoint/src/github.com/robpike/filter" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/endpoint/src/github.com/sirupsen/logrus" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/endpoint/src/github.com/vmihailenco/msgpack" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/endpoint/src/github.com/vmihailenco/tagparser" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/endpoint/src/golang.org/x/oauth2" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/endpoint/src/golang.org/x/xerrors" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/endpoint/src/gopkg.in/auth0.v1" vcs="Git" />
+  </component>
+</project>

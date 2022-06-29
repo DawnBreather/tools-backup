@@ -1,0 +1,33 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  annotations:
+    pv.kubernetes.io/bind-completed: "yes"
+    pv.kubernetes.io/bound-by-controller: "yes"
+    volume.beta.kubernetes.io/storage-provisioner: kubernetes.io/gce-pd
+  creationTimestamp: "2019-11-26T20:28:45Z"
+  finalizers:
+  - kubernetes.io/pvc-protection
+  labels:
+    app: nfs-provisioner
+    release: nfs
+  name: data-nfs-nfs-provisioner-0
+  namespace: nfs-staging
+  resourceVersion: "2773704"
+  selfLink: /api/v1/namespaces/nfs-staging/persistentvolumeclaims/data-nfs-nfs-provisioner-0
+  uid: 581c71f6-108b-11ea-8d66-42010a8000a1
+spec:
+  accessModes:
+  - ReadWriteOnce
+  resources:
+    requests:
+      storage: 20Gi
+  storageClassName: ssd
+  volumeMode: Filesystem
+  volumeName: pvc-581c71f6-108b-11ea-8d66-42010a8000a1
+status:
+  accessModes:
+  - ReadWriteOnce
+  capacity:
+    storage: 20Gi
+  phase: Bound

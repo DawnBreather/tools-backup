@@ -1,0 +1,33 @@
+apiVersion: v1
+data:
+  enabled_plugins: '[rabbitmq_management, rabbitmq_peer_discovery_k8s, rabbitmq_auth_backend_ldap].'
+  rabbitmq.conf: |-
+    ##username and password
+    default_user=user
+    default_pass=CHANGEME
+    ## Clustering
+    cluster_formation.peer_discovery_backend  = rabbit_peer_discovery_k8s
+    cluster_formation.k8s.host = kubernetes.default.svc.cluster.local
+    cluster_formation.node_cleanup.interval = 10
+    cluster_formation.node_cleanup.only_log_warning = true
+    cluster_partition_handling = autoheal
+    # queue master locator
+    queue_master_locator=min-masters
+    # enable guest user
+    loopback_users.guest = false
+    #disk_free_limit.absolute = 50MB
+    #management.load_definitions = /app/load_definition.json
+kind: ConfigMap
+metadata:
+  creationTimestamp: "2019-12-31T12:01:21Z"
+  labels:
+    app: rabbitmq
+    chart: rabbitmq-6.16.0
+    heritage: Tiller
+    io.cattle.field/appId: rabbitmq
+    release: rabbitmq
+  name: rabbitmq-config
+  namespace: rabbitmq
+  resourceVersion: "19355848"
+  selfLink: /api/v1/namespaces/rabbitmq/configmaps/rabbitmq-config
+  uid: 426c67c0-2bc5-11ea-9852-42010a8000ff

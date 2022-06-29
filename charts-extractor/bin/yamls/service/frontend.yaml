@@ -1,0 +1,30 @@
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    field.cattle.io/creatorId: user-7p9hq
+    field.cattle.io/ipAddresses: "null"
+    field.cattle.io/targetDnsRecordIds: "null"
+    field.cattle.io/targetWorkloadIds: "null"
+  creationTimestamp: "2020-05-24T18:23:00Z"
+  labels:
+    cattle.io/creator: norman
+  name: frontend
+  namespace: staging
+  resourceVersion: "7169231"
+  selfLink: /api/v1/namespaces/staging/services/frontend
+  uid: c2a21cdf-d69a-420c-b7ad-439b989360d5
+spec:
+  clusterIP: None
+  ports:
+  - name: tcp-80
+    port: 80
+    protocol: TCP
+    targetPort: 80
+  selector:
+    stack: odms
+    tier: frontend
+  sessionAffinity: None
+  type: ClusterIP
+status:
+  loadBalancer: {}

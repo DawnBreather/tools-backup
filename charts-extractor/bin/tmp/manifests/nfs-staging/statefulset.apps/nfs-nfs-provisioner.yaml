@@ -1,0 +1,113 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  creationTimestamp: "2019-11-26T20:28:45Z"
+  generation: 2
+  labels:
+    app: nfs-provisioner
+    chart: nfs-provisioner-0.3.0
+    heritage: Tiller
+    io.cattle.field/appId: nfs
+    release: nfs
+  name: nfs-nfs-provisioner
+  namespace: nfs-staging
+  resourceVersion: "37759886"
+  selfLink: /apis/apps/v1/namespaces/nfs-staging/statefulsets/nfs-nfs-provisioner
+  uid: 58168b0a-108b-11ea-8d66-42010a8000a1
+spec:
+  podManagementPolicy: OrderedReady
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      app: nfs-provisioner
+      release: nfs
+  serviceName: nfs-nfs-provisioner
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: nfs-provisioner
+        chart: nfs-provisioner-0.3.0
+        heritage: Tiller
+        release: nfs
+    spec:
+      containers:
+      - args:
+        - -provisioner=cluster.local/nfs-nfs-provisioner
+        env:
+        - name: POD_IP
+          valueFrom:
+            fieldRef:
+              apiVersion: v1
+              fieldPath: status.podIP
+        - name: SERVICE_NAME
+          value: nfs-nfs-provisioner
+        - name: POD_NAMESPACE
+          valueFrom:
+            fieldRef:
+              apiVersion: v1
+              fieldPath: metadata.namespace
+        image: ranchercharts/kubernetes_incubator-nfs-provisioner:v2.2.1-k8s1.12
+        imagePullPolicy: IfNotPresent
+        name: nfs-provisioner
+        ports:
+        - containerPort: 2049
+          name: nfs
+          protocol: TCP
+        - containerPort: 20048
+          name: mountd
+          protocol: TCP
+        - containerPort: 111
+          name: rpcbind-tcp
+          protocol: TCP
+        - containerPort: 111
+          name: rpcbind-udp
+          protocol: UDP
+        resources: {}
+        securityContext:
+          capabilities:
+            add:
+            - DAC_READ_SEARCH
+            - SYS_RESOURCE
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+        volumeMounts:
+        - mountPath: /export
+          name: data
+      dnsPolicy: ClusterFirst
+      nodeSelector:
+        instance_type: persistent
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      serviceAccount: nfs-nfs-provisioner
+      serviceAccountName: nfs-nfs-provisioner
+      terminationGracePeriodSeconds: 100
+  updateStrategy:
+    rollingUpdate:
+      partition: 0
+    type: RollingUpdate
+  volumeClaimTemplates:
+  - metadata:
+      creationTimestamp: null
+      name: data
+    spec:
+      accessModes:
+      - ReadWriteOnce
+      resources:
+        requests:
+          storage: 20Gi
+      storageClassName: ssd
+      volumeMode: Filesystem
+    status:
+      phase: Pending
+status:
+  collisionCount: 0
+  currentReplicas: 1
+  currentRevision: nfs-nfs-provisioner-6fb9885697
+  observedGeneration: 2
+  readyReplicas: 1
+  replicas: 1
+  updateRevision: nfs-nfs-provisioner-6fb9885697
+  updatedReplicas: 1

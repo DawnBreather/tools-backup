@@ -1,0 +1,22 @@
+apiVersion: v1
+data:
+  CONTEXT_DIR: /workspace/demographics_mdm
+  LIQUIBASE_CHANGELOG: demographics_mdm.yaml
+  LIQUIBASE_DATABASE: odms
+  LIQUIBASE_DEFAULT_SCHEMA_NAME: public
+  LIQUIBASE_HOST: dbms
+  LIQUIBASE_LOGLEVEL: finest
+  LIQUIBASE_PASSWORD: postgres
+  LIQUIBASE_USERNAME: postgres
+kind: ConfigMap
+metadata:
+  annotations:
+    field.cattle.io/creatorId: user-7p9hq
+  creationTimestamp: "2020-05-31T10:47:48Z"
+  labels:
+    cattle.io/creator: norman
+  name: liquibase-demographics-mdm
+  namespace: staging
+  resourceVersion: "8314689"
+  selfLink: /api/v1/namespaces/staging/configmaps/liquibase-demographics-mdm
+  uid: 18c7bde9-f4f2-41e2-b317-5c22e367be82

@@ -1,0 +1,26 @@
+apiVersion: v1
+data:
+  master.conf: dir /data
+  redis.conf: |-
+    # User-supplied configuration:
+    # Enable AOF https://redis.io/topics/persistence#append-only-file
+    appendonly yes
+    # Disable RDB persistence, AOF persistence already enabled.
+    save ""
+  replica.conf: |-
+    dir /data
+    slave-read-only yes
+kind: ConfigMap
+metadata:
+  creationTimestamp: "2019-11-19T20:08:46Z"
+  labels:
+    app: redis
+    chart: redis-9.0.2
+    heritage: Tiller
+    io.cattle.field/appId: redis-session
+    release: redis-session
+  name: redis-session
+  namespace: redis-staging
+  resourceVersion: "2475357"
+  selfLink: /api/v1/namespaces/redis-staging/configmaps/redis-session
+  uid: 64b77379-0b08-11ea-b777-42010a80017f

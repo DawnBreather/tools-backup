@@ -1,0 +1,5 @@
+ingress.tls.enabled=false
+nexusProxy.env.nexusHttpHost=nexus.aws.rcom-bflw.projects.epam.com
+persistence.storageSize=200Gi
+nexusBackup.persistence.storageSize=200Gi
+ingress.enabled=true

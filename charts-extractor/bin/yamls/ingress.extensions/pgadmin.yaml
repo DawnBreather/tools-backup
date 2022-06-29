@@ -1,0 +1,32 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  annotations:
+    field.cattle.io/creatorId: user-7p9hq
+    field.cattle.io/ingressState: '{"cGdhZG1pbi9zdGFnaW5nL3BnYWRtaW4tb2Rtcy52b2sudG9kYXkvLzgw":""}'
+    field.cattle.io/publicEndpoints: '[{"addresses":["10.6.217.156","10.6.222.212","10.6.223.128","10.6.223.76"],"port":80,"protocol":"HTTP","serviceName":"staging:pgadmin","ingressName":"staging:pgadmin","hostname":"pgadmin-odms.vok.today","allNodes":false}]'
+    kubernetes.io/ingress.class: nginx
+  creationTimestamp: "2020-05-31T11:05:06Z"
+  generation: 1
+  labels:
+    cattle.io/creator: norman
+  name: pgadmin
+  namespace: staging
+  resourceVersion: "8318083"
+  selfLink: /apis/extensions/v1beta1/namespaces/staging/ingresses/pgadmin
+  uid: d5454dd7-dfc4-414c-850f-64a9b028e459
+spec:
+  rules:
+  - host: pgadmin-odms.vok.today
+    http:
+      paths:
+      - backend:
+          serviceName: pgadmin
+          servicePort: 80
+status:
+  loadBalancer:
+    ingress:
+    - ip: 10.6.217.156
+    - ip: 10.6.222.212
+    - ip: 10.6.223.128
+    - ip: 10.6.223.76

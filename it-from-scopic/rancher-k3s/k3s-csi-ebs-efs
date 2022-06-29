@@ -1,0 +1,24 @@
+kubectl apply -k "github.com/kubernetes-sigs/aws-ebs-csi-driver/deploy/kubernetes/overlays/stable/?ref=master"
+
+kubectl set image deployment/ebs-csi-controller ebs-plugin=amazon/aws-ebs-csi-driver:v0.4.0 -n kube-system
+kubectl set image deployment/ebs-csi-controller node-driver-registrar=quay.io/k8scsi/csi-node-driver-registrar:v1.1.0 -n kube-system
+kubectl set image deployment/ebs-csi-controller csi-provisioner=quay.io/k8scsi/csi-provisioner:v1.3.0 -n kube-system
+kubectl set image deployment/ebs-csi-controller csi-attacher=quay.io/k8scsi/csi-attacher:v1.2.0 -n kube-system
+kubectl set image deployment/ebs-csi-controller liveness-probe=quay.io/k8scsi/livenessprobe:v1.1.0 -n kube-system
+
+kubectl set image daemonset/ebs-csi-node ebs-plugin=amazon/aws-ebs-csi-driver:v0.4.0 -n kube-system
+kubectl set image daemonset/ebs-csi-node node-driver-registrar=quay.io/k8scsi/csi-node-driver-registrar:v1.1.0 -n kube-system
+kubectl set image daemonset/ebs-csi-node liveness-probe=quay.io/k8scsi/livenessprobe:v1.1.0 -n kube-system
+
+kubectl get deployment ebs-csi-controller -n kube-system
+kubectl get daemonset ebs-csi-node -n kube-system
+
+kubectl set image daemonset/efs-csi-node ebs-plugin=amazon/aws-ebs-csi-driver:v0.4.0 -n kube-system
+kubectl set image daemonset/efs-csi-node node-driver-registrar=quay.io/k8scsi/csi-node-driver-registrar:v1.1.0 -n kube-system
+kubectl set image daemonset/efs-csi-node liveness-probe=quay.io/k8scsi/livenessprobe:v1.1.0 -n kube-system
+
+
+kubectl apply -k "github.com/kubernetes-sigs/aws-efs-csi-driver/deploy/kubernetes/overlays/stable/?ref=master"
+
+
+

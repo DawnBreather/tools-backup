@@ -1,0 +1,156 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  creationTimestamp: "2019-11-19T20:08:46Z"
+  generation: 2
+  labels:
+    app: redis
+    chart: redis-9.0.2
+    heritage: Tiller
+    io.cattle.field/appId: redis-session
+    release: redis-session
+  name: redis-session-slave
+  namespace: redis-staging
+  resourceVersion: "23644722"
+  selfLink: /apis/apps/v1/namespaces/redis-staging/statefulsets/redis-session-slave
+  uid: 64f5c6ae-0b08-11ea-b777-42010a80017f
+spec:
+  podManagementPolicy: OrderedReady
+  replicas: 2
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      app: redis
+      release: redis-session
+      role: slave
+  serviceName: redis-session-headless
+  template:
+    metadata:
+      annotations:
+        cattle.io/timestamp: "2019-11-25T23:13:58Z"
+        checksum/configmap: 42948fc07c0f109bf6b6112e57f2e68e0ac0d4211d74ba13cf8a04949a67968d
+        checksum/health: ed2f8b11eb46a9141ca2a6e06a2d12d73e87c820903c5af0920c7fb66adfd77d
+        checksum/secret: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+        field.cattle.io/ports: '[[{"containerPort":6379,"dnsName":"redis-session-slave-","name":"redis","protocol":"TCP","sourcePort":0}]]'
+        prometheus.io/port: "9121"
+        prometheus.io/scrape: "true"
+      creationTimestamp: null
+      labels:
+        app: redis
+        chart: redis-9.0.2
+        release: redis-session
+        role: slave
+    spec:
+      containers:
+      - command:
+        - /bin/bash
+        - -c
+        - |-
+          if [[ -n $REDIS_PASSWORD_FILE ]]; then
+            password_aux=`cat ${REDIS_PASSWORD_FILE}`
+            export REDIS_PASSWORD=$password_aux
+          fi
+          if [[ -n $REDIS_MASTER_PASSWORD_FILE ]]; then
+            password_aux=`cat ${REDIS_MASTER_PASSWORD_FILE}`
+            export REDIS_MASTER_PASSWORD=$password_aux
+          fi
+          if [[ ! -f /opt/bitnami/redis/etc/replica.conf ]];then
+            cp /opt/bitnami/redis/mounted-etc/replica.conf /opt/bitnami/redis/etc/replica.conf
+          fi
+          if [[ ! -f /opt/bitnami/redis/etc/redis.conf ]];then
+            cp /opt/bitnami/redis/mounted-etc/redis.conf /opt/bitnami/redis/etc/redis.conf
+          fi
+          ARGS=("--port" "${REDIS_PORT}")
+          ARGS+=("--slaveof" "${REDIS_MASTER_HOST}" "${REDIS_MASTER_PORT_NUMBER}")
+          ARGS+=("--protected-mode" "no")
+          ARGS+=("--include" "/opt/bitnami/redis/etc/redis.conf")
+          ARGS+=("--include" "/opt/bitnami/redis/etc/replica.conf")
+          /run.sh "${ARGS[@]}"
+        env:
+        - name: ALLOW_EMPTY_PASSWORD
+          value: "yes"
+        - name: REDIS_MASTER_HOST
+          value: redis-session-master-0.redis-session-headless.redis-staging.svc.cluster.local
+        - name: REDIS_MASTER_PORT_NUMBER
+          value: "6379"
+        - name: REDIS_PORT
+          value: "6379"
+        - name: REDIS_REPLICATION_MODE
+          value: slave
+        image: docker.io/ranchercharts/bitnami-redis:5.0.5-debian-9-r95
+        imagePullPolicy: IfNotPresent
+        livenessProbe:
+          exec:
+            command:
+            - sh
+            - -c
+            - /health/ping_liveness_local_and_master.sh 5
+          failureThreshold: 5
+          initialDelaySeconds: 30
+          periodSeconds: 10
+          successThreshold: 1
+          timeoutSeconds: 5
+        name: redis-session
+        ports:
+        - containerPort: 6379
+          name: redis
+          protocol: TCP
+        readinessProbe:
+          exec:
+            command:
+            - sh
+            - -c
+            - /health/ping_readiness_local_and_master.sh 5
+          failureThreshold: 5
+          initialDelaySeconds: 5
+          periodSeconds: 10
+          successThreshold: 1
+          timeoutSeconds: 10
+        resources: {}
+        securityContext:
+          runAsUser: 1001
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+        volumeMounts:
+        - mountPath: /health
+          name: health
+        - mountPath: /data
+          name: redis-data
+        - mountPath: /opt/bitnami/redis/mounted-etc
+          name: config
+        - mountPath: /opt/bitnami/redis/etc
+          name: redis-tmp-conf
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext:
+        fsGroup: 1001
+      serviceAccount: default
+      serviceAccountName: default
+      terminationGracePeriodSeconds: 30
+      volumes:
+      - configMap:
+          defaultMode: 493
+          name: redis-session-health
+        name: health
+      - configMap:
+          defaultMode: 420
+          name: redis-session
+        name: config
+      - emptyDir: {}
+        name: sentinel-tmp-conf
+      - emptyDir: {}
+        name: redis-tmp-conf
+      - emptyDir: {}
+        name: redis-data
+  updateStrategy:
+    type: RollingUpdate
+status:
+  collisionCount: 0
+  currentReplicas: 2
+  currentRevision: redis-session-slave-57f76f8c96
+  observedGeneration: 2
+  readyReplicas: 2
+  replicas: 2
+  updateRevision: redis-session-slave-57f76f8c96
+  updatedReplicas: 2

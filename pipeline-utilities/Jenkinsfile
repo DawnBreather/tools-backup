@@ -1,0 +1,112 @@
+def String determineRepoName() {
+    return scm.getUserRemoteConfigs()[0].getUrl().tokenize('/').last().split("\\.")[0]
+}
+
+def projectKey = params.containsKey('projectKey') ? params.projectKey : 'rcom-bflw'
+def tagName = params.containsKey('tagName') ? params.tagName : "${BRANCH_NAME}"
+def registryEndpoint = params.containsKey('registryEndpoint') ? params.registryEndpoint : 'harbor.aws.rcom-bflw.projects.epam.com:443'
+def registryCredentialsId = params.containsKey('registryCredentialsId') ? params.registryCredentialsId : "harbor-public"
+def gitCredentialsId = params.containsKey('gitCredentialsId') ? params.gitCredentialsId : "rcom-bflw-repo-credentials"
+
+def ctpProjectKey = params.containsKey('ctpProjectKey') ? params.projectKey : 'rcom-bflw'
+def ctpJenkinsCredentialsId = params.containsKey('ctpJenkinsCredentialsId') ? params.projectKey : 'ctp-credentials'
+//def ctpClientId = params.containsKey('ctpClientId') ? params.projectKey : ''
+//def ctpClientSecret = params.containsKey('ctpClientSecret') ? params.projectKey : ''
+def ctpAuthUrl = params.containsKey('ctpAuthUrl') ? params.projectKey : 'https://auth.commercetools.co'
+def ctpApiUrl = params.containsKey('ctpApiUrl') ? params.projectKey : 'https://api.commercetools.co'
+def ctpScopes = params.containsKey('ctpScopes') ? params.projectKey : 'manage_project'
+
+def sonarHostUrl = params.containsKey('sonarHostUrl') ? params.projectKey : 'https://sonar.aws.rcom-bflw.projects.epam.com'
+
+def stageSwitcher = [
+    printEnvironmentVariables : true,
+    secretsViolation : [
+        credAlert : true,
+        detectSecrets : true
+        ],
+    dockerImages : true,
+    ]
+
+
+/* Declarative pipeline must be enclosed within a pipeline block */
+pipeline {
+
+    environment {
+        PROJECT_KEY="$projectKey"
+        SERVICE_NAME="${IMAGE_NAME}".replace("rcom-", "")
+
+        GIT_REPO_CREDS="$gitCredentialsId"
+        IMG_REG_URL="$registryEndpoint"
+        IMG_REG_CREDS=credentials("$registryCredentialsId")
+        IMAGE_NAME= "${determineRepoName()}"
+        TAG_NAME="$tagName".replace("/","-")
+
+        SONAR_HOST_URL="${sonarHostUrl}"
+    }
+
+    agent {
+      kubernetes {
+        label "ci-${determineRepoName()}"
+        yamlFile 'k8s-ci-pod.yaml'
+        defaultContainer 'jnlp'
+      }
+    }
+	triggers {
+        pollSCM('H/5 * * * *')
+    }
+
+    
+    stages {
+        stage('Print environment variables') {
+            when { expression { "${stageSwitcher.printEnvironmentVariables}" == "true" } }
+
+            steps {
+                script {
+                    echo sh(script: 'env|sort', returnStdout: true);
+                }
+            }
+        }
+
+        stage('Secrets Violation') {
+            parallel {
+                stage('Cred Alert'){
+                    when { expression { "${stageSwitcher.secretsViolation.credAlert}" == "true" } }
+
+                    steps {
+                        container('creds-verificator'){
+                            sh 'cred-alert scan --regexp-file=/etc/cred-alert/regexp -f .'
+                        }
+                    }
+                }
+                
+                stage('Detect Secrets'){
+                    when { expression { "${stageSwitcher.secretsViolation.detectSecrets}" == "true" } }
+
+                    steps {
+                        container('creds-verificator'){
+                            sh "detect-secrets scan --all-files > /tmp/secrets-scan-results"
+                            sh "cat /tmp/secrets-scan-results"
+                            sh "cat /tmp/secrets-scan-results | grep -c 'line_number' && exit 1 || :"
+                        }
+                    }
+                }
+            }
+        }
+        
+
+        stage('Docker images'){
+            when { expression { "${stageSwitcher.dockerImages}" == "true" } }
+
+            steps {
+                // BUILD CONTAINER
+                container('dnd'){
+                    sh "docker build --label maintainer=${GIT_COMMIT} --tag $IMG_REG_URL/public/cred-alert:latest -f cred-alert/Dockerfile cred-alert"
+                    sh "docker build --label maintainer=${GIT_COMMIT} --tag $IMG_REG_URL/public/dind-systemd-ansible-molecule:ubuntu-1804 -f dind-ubuntu-systemd-1804/Dockerfile dind-ubuntu-systemd-1804"
+                    sh "docker login -u'${IMG_REG_CREDS_USR}' -p'${IMG_REG_CREDS_PSW}' $IMG_REG_URL"
+                    sh "docker push $IMG_REG_URL/public/cred-alert:latest"
+                    sh "docker push $IMG_REG_URL/public/dind-systemd-ansible-molecule:ubuntu-1804"
+                }
+            }
+        }
+    }
+}

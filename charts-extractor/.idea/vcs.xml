@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="VcsDirectoryMappings">
+    <mapping directory="$PROJECT_DIR$/src" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/github.com/fatih/color" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/github.com/goccy/go-yaml" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/github.com/iancoleman/strcase" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/github.com/jinzhu/copier" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/github.com/konsorten/go-windows-terminal-sequences" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/github.com/manucorporat/try" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/github.com/mohae/deepcopy" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/github.com/sirupsen/logrus" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/github.com/thoas/go-funk" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/golang.org/x/xerrors" vcs="Git" />
+  </component>
+</project>

@@ -1,0 +1,30 @@
+1. Add catalog
+https://github.com/rogersdigitalexperience/rcom-charts.git
+vkim-rogers
+a7aedeb517c7f458f3890aeef0646681218510fa
+
+2. Apps -> deploy Redis
+   * Enable Redis Password -> False
+
+3.1. Add harbor registry secret 
+   * harbor
+   * harbor.aws.rcom-bflw.projects.epam.com
+   * admin / admin
+
+3.2. Add CTP Credentials secret
+   * ctp-credentials
+CT_API_AUTH=https://api.commercetools.co
+CT_AUTH_URL=https://auth.commercetools.co
+CT_CLIENT_ID=6GKArrQ5PPtG3Bd6Sx5Vj3oj
+CT_CLIENT_SECRET=C5HGIk9fGrKLn1BXVz_0sNuM7Jgq2HYx
+CT_PROJECT_KEY=rcom-bflw
+CT_SCOPES=manage_project
+JWT_SECRET=MaYzkSjmkzPC57L
+
+3.3. Apps -> deploy rcom-bflw
+     * adjust redis: redis-master.redis
+     * Enable default TLS: false
+     * Hostname: rcom-api-demo.aws.rcom-bflw.projects.epam.com
+
+3.4. Route 53
+     * Add rcom-api-demo -> A -> ALIAS -> LoadBalancer

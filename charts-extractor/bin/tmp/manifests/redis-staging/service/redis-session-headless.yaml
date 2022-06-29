@@ -1,0 +1,29 @@
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: "2019-11-19T20:08:46Z"
+  labels:
+    app: redis
+    chart: redis-9.0.2
+    heritage: Tiller
+    io.cattle.field/appId: redis-session
+    release: redis-session
+  name: redis-session-headless
+  namespace: redis-staging
+  resourceVersion: "478508"
+  selfLink: /api/v1/namespaces/redis-staging/services/redis-session-headless
+  uid: 64cea73b-0b08-11ea-b777-42010a80017f
+spec:
+  clusterIP: None
+  ports:
+  - name: redis
+    port: 6379
+    protocol: TCP
+    targetPort: redis
+  selector:
+    app: redis
+    release: redis-session
+  sessionAffinity: None
+  type: ClusterIP
+status:
+  loadBalancer: {}

@@ -1,0 +1,11 @@
+helm repo add rancher-latest https://releases.rancher.com/server-charts/latest
+
+helm install stable/cert-manager \
+  --name cert-manager \
+  --namespace kube-system \
+  --version v0.5.2
+
+helm install rancher-latest/rancher \
+  --name rancher \
+  --namespace cattle-system \
+  --set hostname=rcom-rancher-demo.aws.rcom-bflw.projects.epam.com

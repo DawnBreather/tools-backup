@@ -1,0 +1,156 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  creationTimestamp: "2019-11-19T20:09:39Z"
+  generation: 2
+  labels:
+    app: redis
+    chart: redis-9.0.2
+    heritage: Tiller
+    io.cattle.field/appId: redis-frontend
+    release: redis-frontend
+  name: redis-frontend-master
+  namespace: redis-staging
+  resourceVersion: "23644602"
+  selfLink: /apis/apps/v1/namespaces/redis-staging/statefulsets/redis-frontend-master
+  uid: 8454eeb8-0b08-11ea-b777-42010a80017f
+spec:
+  podManagementPolicy: OrderedReady
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      app: redis
+      release: redis-frontend
+      role: master
+  serviceName: redis-frontend-headless
+  template:
+    metadata:
+      annotations:
+        cattle.io/timestamp: "2019-11-25T23:13:58Z"
+        checksum/configmap: 16791a0303a0a2650f3bb3abd233c6138f72ace7a5bcf46ae889abab841a34cf
+        checksum/health: 6472fee75b2a08198a2efbcd1fc52f21486eac94840c537eac84b2c95dfb602b
+        checksum/secret: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+        field.cattle.io/ports: '[[{"containerPort":6379,"dnsName":"redis-frontend-master-","name":"redis","protocol":"TCP","sourcePort":0}]]'
+        prometheus.io/port: "9121"
+        prometheus.io/scrape: "true"
+      creationTimestamp: null
+      labels:
+        app: redis
+        chart: redis-9.0.2
+        release: redis-frontend
+        role: master
+    spec:
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: instance_type
+                operator: In
+                values:
+                - persistent
+      containers:
+      - command:
+        - /bin/bash
+        - -c
+        - |-
+          if [[ -n $REDIS_PASSWORD_FILE ]]; then
+            password_aux=`cat ${REDIS_PASSWORD_FILE}`
+            export REDIS_PASSWORD=$password_aux
+          fi
+          if [[ ! -f /opt/bitnami/redis/etc/master.conf ]];then
+            cp /opt/bitnami/redis/mounted-etc/master.conf /opt/bitnami/redis/etc/master.conf
+          fi
+          if [[ ! -f /opt/bitnami/redis/etc/redis.conf ]];then
+            cp /opt/bitnami/redis/mounted-etc/redis.conf /opt/bitnami/redis/etc/redis.conf
+          fi
+          ARGS=("--port" "${REDIS_PORT}")
+          ARGS+=("--protected-mode" "no")
+          ARGS+=("--include" "/opt/bitnami/redis/etc/redis.conf")
+          ARGS+=("--include" "/opt/bitnami/redis/etc/master.conf")
+          /run.sh ${ARGS[@]}
+        env:
+        - name: ALLOW_EMPTY_PASSWORD
+          value: "yes"
+        - name: REDIS_PORT
+          value: "6379"
+        - name: REDIS_REPLICATION_MODE
+          value: master
+        image: docker.io/ranchercharts/bitnami-redis:5.0.5-debian-9-r95
+        imagePullPolicy: IfNotPresent
+        livenessProbe:
+          exec:
+            command:
+            - sh
+            - -c
+            - /health/ping_liveness_local.sh 5
+          failureThreshold: 5
+          initialDelaySeconds: 5
+          periodSeconds: 5
+          successThreshold: 1
+          timeoutSeconds: 5
+        name: redis-frontend
+        ports:
+        - containerPort: 6379
+          name: redis
+          protocol: TCP
+        readinessProbe:
+          exec:
+            command:
+            - sh
+            - -c
+            - /health/ping_readiness_local.sh 5
+          failureThreshold: 5
+          initialDelaySeconds: 5
+          periodSeconds: 5
+          successThreshold: 1
+          timeoutSeconds: 1
+        resources: {}
+        securityContext:
+          runAsUser: 1001
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+        volumeMounts:
+        - mountPath: /health
+          name: health
+        - mountPath: /data
+          name: redis-data
+        - mountPath: /opt/bitnami/redis/mounted-etc
+          name: config
+        - mountPath: /opt/bitnami/redis/etc/
+          name: redis-tmp-conf
+      dnsPolicy: ClusterFirst
+      nodeSelector:
+        instance_type: persistent
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext:
+        fsGroup: 1001
+      serviceAccount: default
+      serviceAccountName: default
+      terminationGracePeriodSeconds: 30
+      volumes:
+      - configMap:
+          defaultMode: 493
+          name: redis-frontend-health
+        name: health
+      - configMap:
+          defaultMode: 420
+          name: redis-frontend
+        name: config
+      - emptyDir: {}
+        name: redis-data
+      - emptyDir: {}
+        name: redis-tmp-conf
+  updateStrategy:
+    type: RollingUpdate
+status:
+  collisionCount: 0
+  currentReplicas: 1
+  currentRevision: redis-frontend-master-796d9cd6b6
+  observedGeneration: 2
+  readyReplicas: 1
+  replicas: 1
+  updateRevision: redis-frontend-master-796d9cd6b6
+  updatedReplicas: 1

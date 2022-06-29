@@ -1,0 +1,5 @@
+image.tag=10
+postgresqlUsername=admin
+postgresqlPassword=admin
+persistence.enabled=true
+persistence.size=8Gi

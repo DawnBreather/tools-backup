@@ -1,0 +1,40 @@
+apiVersion: v1
+data:
+  DB_DEMOGRAPHICS_DATABASE: odms
+  DB_DEMOGRAPHICS_HOST: postgres.staging
+  DB_DEMOGRAPHICS_PORT: "5432"
+  DB_DEMOGRAPHICS_SSL: "false"
+  DB_DEMOGRAPHICS_SSLMODE: disable
+  DB_ODMS_DATABASE: odms
+  DB_ODMS_HOST: postgres.staging
+  DB_ODMS_PORT: "false"
+  DB_ODMS_SSLMODE: disable
+  DB_REGISTRIES_DATABASE: odms
+  DB_REGISTRIES_HOST: postgres.staging
+  DB_REGISTRIES_PORT: "5432"
+  DB_REGISTRIES_SSL: "false"
+  DB_REGISTRIES_SSLMODE: disable
+  DB_SECURITY_DATABASE: odms
+  DB_SECURITY_HOST: postgres.staging
+  DB_SECURITY_PORT: "5432"
+  DB_SECURITY_SSL: "false"
+  DB_SECURITY_SSLMODE: disable
+  SECURITY_KEYSTORE_SIGNINGKEYSTYPE: inmemory
+  SECURITY_PROVIDER_LDAP_HOST: ldap.staging
+  SECURITY_PROVIDER_LDAP_PORT: "389"
+  SECURITY_PROVIDER_TYPE: ldap
+  SERVER_SSL_ENABLED: "false"
+  SERVICE_PORT: "8082"
+  SPRING_PROFILES_ACTIVE: dev
+kind: ConfigMap
+metadata:
+  annotations:
+    field.cattle.io/creatorId: user-7p9hq
+  creationTimestamp: "2020-05-31T10:47:20Z"
+  labels:
+    cattle.io/creator: norman
+  name: backend
+  namespace: staging
+  resourceVersion: "8314605"
+  selfLink: /api/v1/namespaces/staging/configmaps/backend
+  uid: 422c3deb-ae31-48fd-9161-c44a7669fb68

@@ -1,0 +1,157 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  annotations:
+    deployment.kubernetes.io/revision: "40"
+    field.cattle.io/creatorId: user-wgcfv
+    field.cattle.io/publicEndpoints: '[{"addresses":["34.68.64.217"],"port":443,"protocol":"HTTPS","serviceName":"staging:idc","ingressName":"staging:idc","hostname":"stg1337.idcreator.com","allNodes":false}]'
+  creationTimestamp: "2019-11-26T22:01:30Z"
+  generation: 49
+  labels:
+    cattle.io/creator: norman
+    workload.user.cattle.io/workloadselector: deployment-staging-idc
+  name: idc
+  namespace: staging
+  resourceVersion: "49024367"
+  selfLink: /apis/extensions/v1beta1/namespaces/staging/deployments/idc
+  uid: 4cf740aa-1098-11ea-8d66-42010a8000a1
+spec:
+  progressDeadlineSeconds: 600
+  replicas: 7
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      workload.user.cattle.io/workloadselector: deployment-staging-idc
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
+    type: RollingUpdate
+  template:
+    metadata:
+      annotations:
+        cattle.io/timestamp: "2020-02-13T07:59:02Z"
+        field.cattle.io/ports: '[[{"containerPort":443,"dnsName":"idc","kind":"ClusterIP","name":"https","protocol":"TCP","sourcePort":0}],[{"containerPort":443,"dnsName":"idc-","name":"https","protocol":"TCP","sourcePort":0}]]'
+      creationTimestamp: null
+      labels:
+        app: idc
+        workload.user.cattle.io/workloadselector: deployment-staging-idc
+    spec:
+      affinity: {}
+      containers:
+      - image: dawnbreather/php-fpm:idc
+        imagePullPolicy: Always
+        livenessProbe:
+          failureThreshold: 3
+          initialDelaySeconds: 10
+          periodSeconds: 2
+          successThreshold: 1
+          tcpSocket:
+            port: 9000
+          timeoutSeconds: 2
+        name: idc
+        ports:
+        - containerPort: 443
+          name: https
+          protocol: TCP
+        readinessProbe:
+          failureThreshold: 3
+          initialDelaySeconds: 10
+          periodSeconds: 2
+          successThreshold: 2
+          tcpSocket:
+            port: 9000
+          timeoutSeconds: 2
+        resources: {}
+        securityContext:
+          allowPrivilegeEscalation: false
+          capabilities: {}
+          privileged: false
+          readOnlyRootFilesystem: false
+          runAsNonRoot: false
+        stdin: true
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+        tty: true
+        volumeMounts:
+        - mountPath: /home/idc/www
+          name: static-content
+        - mountPath: /home/idc/www/pub/media/storage
+          name: media-staging
+        - mountPath: /home/idc/www/pub/static/_cache
+          name: cache-staging
+      - image: dawnbreather/nginx:idc
+        imagePullPolicy: Always
+        livenessProbe:
+          failureThreshold: 3
+          initialDelaySeconds: 10
+          periodSeconds: 2
+          successThreshold: 1
+          tcpSocket:
+            port: 443
+          timeoutSeconds: 2
+        name: nginx
+        ports:
+        - containerPort: 443
+          name: https
+          protocol: TCP
+        readinessProbe:
+          failureThreshold: 3
+          initialDelaySeconds: 10
+          periodSeconds: 2
+          successThreshold: 2
+          tcpSocket:
+            port: 443
+          timeoutSeconds: 2
+        resources: {}
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: false
+          runAsNonRoot: false
+        stdin: true
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+        tty: true
+        volumeMounts:
+        - mountPath: /home/idc/www
+          name: static-content
+        - mountPath: /home/idc/www/pub/media/storage
+          name: media-staging
+        - mountPath: /home/idc/www/pub/static/_cache
+          name: cache-staging
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30
+      volumes:
+      - hostPath:
+          path: /tmp/static-content-staging/www
+          type: Directory
+        name: static-content
+      - name: media-staging
+        persistentVolumeClaim:
+          claimName: media-staging
+      - name: cache-staging
+        persistentVolumeClaim:
+          claimName: cache-staging
+status:
+  availableReplicas: 7
+  conditions:
+  - lastTransitionTime: "2019-11-26T22:01:30Z"
+    lastUpdateTime: "2020-02-13T08:01:51Z"
+    message: ReplicaSet "idc-76bbd897" has successfully progressed.
+    reason: NewReplicaSetAvailable
+    status: "True"
+    type: Progressing
+  - lastTransitionTime: "2020-03-01T07:14:33Z"
+    lastUpdateTime: "2020-03-01T07:14:33Z"
+    message: Deployment has minimum availability.
+    reason: MinimumReplicasAvailable
+    status: "True"
+    type: Available
+  observedGeneration: 49
+  readyReplicas: 7
+  replicas: 7
+  updatedReplicas: 7

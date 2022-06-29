@@ -1,0 +1,22 @@
+apiVersion: v1
+data:
+  CONTEXT_DIR: /workspace/epmr
+  LIQUIBASE_CHANGELOG: epmr.yaml
+  LIQUIBASE_DATABASE: odms
+  LIQUIBASE_DEFAULT_SCHEMA_NAME: public
+  LIQUIBASE_HOST: dbms
+  LIQUIBASE_LOGLEVEL: finest
+  LIQUIBASE_PASSWORD: postgres
+  LIQUIBASE_USERNAME: postgres
+kind: ConfigMap
+metadata:
+  annotations:
+    field.cattle.io/creatorId: user-7p9hq
+  creationTimestamp: "2020-05-31T10:48:13Z"
+  labels:
+    cattle.io/creator: norman
+  name: liquibase-epmr
+  namespace: staging
+  resourceVersion: "8314741"
+  selfLink: /api/v1/namespaces/staging/configmaps/liquibase-epmr
+  uid: 9e225aae-5bf0-4aef-8e34-936f1ff28d63

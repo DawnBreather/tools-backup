@@ -1,0 +1,37 @@
+---
+  defaultImage: true
+  elasticsearch: 
+    image: "ranchercharts/elasticsearch-elasticsearch"
+    imageTag: "7.3.0"
+    replicas: "3"
+    antiAffinity: "hard"
+    persistence: 
+      enabled: true
+      storageClass: "aws-ebs"
+      size: "30Gi"
+    resources:
+      requests:
+        cpu: "100m"
+        memory: "512Mi"
+      limits:
+        cpu: "500m"
+        memory: "2Gi"
+  kibana: 
+    image: "ranchercharts/kibana-kibana"
+    imageTag: "7.3.0"
+    language: "en"
+    service: 
+      type: "ClusterIP"
+    enableProxy: false
+  filebeat: 
+    image: "ranchercharts/beats-filebeat"
+    imageTag: "7.3.0"
+    enabled: false
+  metricbeat: 
+    image: "ranchercharts/beats-metricbeat"
+    imageTag: "7.3.0"
+    kube-state-metrics: 
+      image: 
+        repository: "ranchercharts/coreos-kube-state-metrics"
+        tag: "v1.7.2"
+    enabled: false

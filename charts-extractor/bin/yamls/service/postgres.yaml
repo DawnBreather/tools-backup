@@ -1,0 +1,30 @@
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    field.cattle.io/creatorId: user-7p9hq
+    field.cattle.io/ipAddresses: "null"
+    field.cattle.io/targetDnsRecordIds: "null"
+    field.cattle.io/targetWorkloadIds: "null"
+  creationTimestamp: "2020-05-24T18:28:29Z"
+  labels:
+    cattle.io/creator: norman
+  name: postgres
+  namespace: staging
+  resourceVersion: "7170037"
+  selfLink: /api/v1/namespaces/staging/services/postgres
+  uid: bbc36954-9771-47eb-83e6-513f376f69e5
+spec:
+  clusterIP: None
+  ports:
+  - name: tcp-5432
+    port: 5432
+    protocol: TCP
+    targetPort: 5432
+  selector:
+    stack: odms
+    tier: database
+  sessionAffinity: None
+  type: ClusterIP
+status:
+  loadBalancer: {}

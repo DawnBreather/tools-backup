@@ -1,0 +1,16 @@
+apiVersion: v1
+data:
+  PGADMIN_DEFAULT_EMAIL: pgadmin@user
+  PGADMIN_DEFAULT_PASSWORD: pgadmin@pass
+kind: ConfigMap
+metadata:
+  annotations:
+    field.cattle.io/creatorId: user-7p9hq
+  creationTimestamp: "2020-05-31T10:46:35Z"
+  labels:
+    cattle.io/creator: norman
+  name: pgadmin
+  namespace: staging
+  resourceVersion: "8317249"
+  selfLink: /api/v1/namespaces/staging/configmaps/pgadmin
+  uid: 14cd093d-732d-42e1-bc44-5383bea2520b

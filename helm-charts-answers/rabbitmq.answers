@@ -1,0 +1,17 @@
+rabbitmq.username=admin
+rabbitmq.password=admin
+rabbitmq.tls.enabled=false
+service.port=5672
+service.managerPort=15672
+persistence.storageClass=nfs-client
+persistence.size=8Gi
+ingress.enabled=true
+ingress.hostName=mq-staging.idcreator.com
+
+
+
+
+
+
+
+service.tlsPort=5671

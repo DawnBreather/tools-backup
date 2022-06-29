@@ -1,0 +1,19 @@
+docker tag goharbor/chartmuseum-photon:dev dawnbreather/chartmuseum-photon:dev-20190731
+docker tag goharbor/clair-photon:dev dawnbreather/clair-photon:dev-20190731
+docker tag goharbor/harbor-core:dev dawnbreather/harbor-core:dev-20190731
+docker tag goharbor/harbor-db:dev dawnbreather/harbor-db:dev-20190731
+docker tag goharbor/harbor-jobservice:dev dawnbreather/harbor-jobservice:dev-20190731
+docker tag goharbor/harbor-portal:dev dawnbreather/harbor-portal:dev-20190731
+docker tag goharbor/redis-photon:dev dawnbreather/redis-photon:dev-20190731
+docker tag goharbor/registry-photon:dev dawnbreather/registry-photon:dev-20190731
+
+
+
+docker push dawnbreather/chartmuseum-photon:dev-20190731
+docker push dawnbreather/clair-photon:dev-20190731
+docker push dawnbreather/harbor-core:dev-20190731
+docker push dawnbreather/harbor-db:dev-20190731
+docker push dawnbreather/harbor-jobservice:dev-20190731
+docker push dawnbreather/harbor-portal:dev-20190731
+docker push dawnbreather/redis-photon:dev-20190731
+docker push dawnbreather/registry-photon:dev-20190731

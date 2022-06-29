@@ -1,0 +1,6 @@
+package variables
+
+const (
+	EC2_LIFECYCLE_TERMINATING = "autoscaling:EC2_INSTANCE_TERMINATING"
+	EC2_LIFECYCLE_LAUNCHING = "autoscaling:EC2_INSTANCE_LAUNCHING"
+)

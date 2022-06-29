@@ -1,0 +1,66 @@
+#!groovy
+
+properties([pipelineTriggers([pollSCM('H/2 * * * *')])])
+
+def String determineRepoName() {
+    return scm.getUserRemoteConfigs()[0].getUrl().tokenize('/').last().split("\\.")[0]
+}
+
+
+def projectKey = params.containsKey('projectKey') ? params.projectKey : 'rcom-bflw'
+def tagName = params.containsKey('tag') ? params.tag : "${BRANCH_NAME}"
+def repository = params.containsKey('repository') ? params.repository : 'registry.aws.rcom-bflw.projects.epam.com:443'
+def credentialsId = params.containsKey('credentialsId') ? params.credentialsId : "rcom-bflw-repo-credentials"
+
+pipeline {
+    agent any
+
+    //triggers {
+    //    pollSCM('H/2 * * * *')
+    //}
+    
+    environment {
+        PROJECT_KEY="$projectKey"
+        REPO_CREDS="$credentialsId"
+        REPO_URL="$repository"
+        IMAGE_NAME= "${determineRepoName()}"
+        TAG_NAME="$tagName".replace("/","-")
+    }
+    stages {
+
+        stage('Pull submodules') {
+            steps {
+                sshagent (credentials: ["${REPO_CREDS}"]) {
+                    sh 'git submodule update --init --recursive'
+                }
+            }
+        }
+
+        stage('Build Container') {
+            steps {
+                sh "docker build --tag $REPO_URL/$PROJECT_KEY/$IMAGE_NAME:tmp ."
+            }
+        }
+
+        stage('Upload Container') {
+            when { not { branch 'master' } }
+            
+            steps {
+                sh "docker tag $REPO_URL/$PROJECT_KEY/$IMAGE_NAME:tmp $REPO_URL/$PROJECT_KEY/$IMAGE_NAME:$TAG_NAME"
+                sh "docker push $REPO_URL/$PROJECT_KEY/$IMAGE_NAME:$TAG_NAME"
+            }
+        }
+
+        stage('Upload Release') {
+            when { branch 'master' }
+                
+            steps {
+                sh "docker tag $REPO_URL/$PROJECT_KEY/$IMAGE_NAME:tmp $REPO_URL/$PROJECT_KEY/$IMAGE_NAME:$BUILD_NUMBER"
+                sh "docker tag $REPO_URL/$PROJECT_KEY/$IMAGE_NAME:tmp $REPO_URL/$PROJECT_KEY/$IMAGE_NAME:latest"
+                
+                sh "docker push $REPO_URL/$PROJECT_KEY/$IMAGE_NAME:$BUILD_NUMBER"
+                sh "docker push $REPO_URL/$PROJECT_KEY/$IMAGE_NAME:latest"
+            }
+        }
+    }      
+}

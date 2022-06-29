@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="5599162b-f366-4bc4-a8ef-e38d50549db2" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/bin/repos/RogersNAc2CEX/appconfig/stop-service.sh" beforeDir="false" afterPath="$PROJECT_DIR$/bin/repos/RogersNAc2CEX/appconfig/stop-service.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/repos/RogersNAc2CEX/nginxconfig/root-folder-ssl/uterogers/bfa-rogers.conf" beforeDir="false" afterPath="$PROJECT_DIR$/bin/repos/RogersNAc2CEX/nginxconfig/root-folder-ssl/uterogers/bfa-rogers.conf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/repos/RogersNAc2CEX/nginxconfig/root-folder-ssl/uterogers/proxies-rogers.conf" beforeDir="false" afterPath="$PROJECT_DIR$/bin/repos/RogersNAc2CEX/nginxconfig/root-folder-ssl/uterogers/proxies-rogers.conf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/repos/RogersNAc2CEX/s3cleanup.sh" beforeDir="false" afterPath="$PROJECT_DIR$/bin/repos/RogersNAc2CEX/s3cleanup.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/repos/RogersNAc2CEX/s3cleanup_binary.sh" beforeDir="false" afterPath="$PROJECT_DIR$/bin/repos/RogersNAc2CEX/s3cleanup_binary.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/repos/RogersNAc2CEX/s3upload_binary.sh" beforeDir="false" afterPath="$PROJECT_DIR$/bin/repos/RogersNAc2CEX/s3upload_binary.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/repos/RogersNAc2CEX/s3upload_userdata.sh" beforeDir="false" afterPath="$PROJECT_DIR$/bin/repos/RogersNAc2CEX/s3upload_userdata.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/repos/aws-core/manage_infrastructure.sh" beforeDir="false" afterPath="$PROJECT_DIR$/bin/repos/aws-core/manage_infrastructure.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/repos/aws-core/unit_test.sh" beforeDir="false" afterPath="$PROJECT_DIR$/bin/repos/aws-core/unit_test.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/repos/rcom-fe/apps/bfa/nac/shared/graphQL/.1.babelrc" beforeDir="false" afterPath="$PROJECT_DIR$/bin/repos/rcom-fe/apps/bfa/nac/shared/graphQL/.1.babelrc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/repos/rcom-fe/apps/bfa/nac/shared/graphQL/.2babelrc" beforeDir="false" afterPath="$PROJECT_DIR$/bin/repos/rcom-fe/apps/bfa/nac/shared/graphQL/.2babelrc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/repos/rcom-fe/apps/bfa/nac/shared/graphQL/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/bin/repos/rcom-fe/apps/bfa/nac/shared/graphQL/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/repos/rcom-fe/apps/bfa/nac/shared/graphQL/config.js" beforeDir="false" afterPath="$PROJECT_DIR$/bin/repos/rcom-fe/apps/bfa/nac/shared/graphQL/config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/repos/rcom-fe/apps/bfa/nac/shared/graphQL/config.json" beforeDir="false" afterPath="$PROJECT_DIR$/bin/repos/rcom-fe/apps/bfa/nac/shared/graphQL/config.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/repos/rcom-fe/apps/bfa/nac/shared/graphQL/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/bin/repos/rcom-fe/apps/bfa/nac/shared/graphQL/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/repos/rcom-fe/apps/bfa/nac/shared/graphQL/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/bin/repos/rcom-fe/apps/bfa/nac/shared/graphQL/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/repos/rcom-fe/apps/bfa/nac/shared/graphQL/package.1.json" beforeDir="false" afterPath="$PROJECT_DIR$/bin/repos/rcom-fe/apps/bfa/nac/shared/graphQL/package.1.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/repos/rcom-fe/apps/bfa/nac/shared/graphQL/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/bin/repos/rcom-fe/apps/bfa/nac/shared/graphQL/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/repos/rcom-fe/apps/bfa/nac/shared/mock-server/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/bin/repos/rcom-fe/apps/bfa/nac/shared/mock-server/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/repos/rcom-fe/apps/bfa/nac/shared/mock-server/Product-detailsModel.json" beforeDir="false" afterPath="$PROJECT_DIR$/bin/repos/rcom-fe/apps/bfa/nac/shared/mock-server/Product-detailsModel.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/repos/rcom-fe/apps/bfa/nac/shared/mock-server/ctDevices.json" beforeDir="false" afterPath="$PROJECT_DIR$/bin/repos/rcom-fe/apps/bfa/nac/shared/mock-server/ctDevices.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/repos/rcom-fe/apps/bfa/nac/shared/mock-server/db.json" beforeDir="false" afterPath="$PROJECT_DIR$/bin/repos/rcom-fe/apps/bfa/nac/shared/mock-server/db.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/repos/rcom-fe/apps/bfa/nac/shared/mock-server/model.json" beforeDir="false" afterPath="$PROJECT_DIR$/bin/repos/rcom-fe/apps/bfa/nac/shared/mock-server/model.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/repos/rcom-fe/apps/bfa/nac/shared/mock-server/oldPlanConfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/bin/repos/rcom-fe/apps/bfa/nac/shared/mock-server/oldPlanConfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/repos/rcom-fe/apps/bfa/nac/shared/mock-server/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/bin/repos/rcom-fe/apps/bfa/nac/shared/mock-server/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/repos/rcom-fe/apps/bfa/nac/shared/mock-server/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/bin/repos/rcom-fe/apps/bfa/nac/shared/mock-server/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/repos/rcom-fe/apps/bfa/nac/shared/mock-server/routes.json" beforeDir="false" afterPath="$PROJECT_DIR$/bin/repos/rcom-fe/apps/bfa/nac/shared/mock-server/routes.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/repos/rcom-fe/apps/bfa/nac/shared/mock-server/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/bin/repos/rcom-fe/apps/bfa/nac/shared/mock-server/server.js" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Go File" />
+      </list>
+    </option>
+  </component>
+  <component name="GOROOT" path="C:\Go" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/src/github.com/google/go-github" />
+  </component>
+  <component name="GoLibraries">
+    <option name="indexEntireGoPath" value="false" />
+    <option name="urls">
+      <list>
+        <option value="file://$PROJECT_DIR$" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="1XQP9Sx0SiiMfUwPhsFFbHO1car" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultGoTemplateProperty" value="Go File" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="configurable.Global.GOPATH.is.expanded" value="true" />
+    <property name="configurable.Module.GOPATH.is.expanded" value="false" />
+    <property name="configurable.Project.GOPATH.is.expanded" value="true" />
+    <property name="go.import.settings.migrated" value="true" />
+    <property name="go.tried.to.enable.integration.dep.integrator" value="true" />
+    <property name="go.tried.to.enable.integration.vgo.integrator" value="true" />
+    <property name="go.vendoring.notification.had.been.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main.go" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="settings.editor.selected.configurable" value="com.goide.configuration.GoLibrariesConfigurableProvider" />
+  </component>
+  <component name="RunManager">
+    <configuration name="go build main.go" type="GoApplicationRunConfiguration" factoryName="Go Application" nameIsGenerated="true">
+      <module name="github-repos-stats-collector" />
+      <working_directory value="$PROJECT_DIR$/" />
+      <go_parameters value="-i" />
+      <envs>
+        <env name="GITHUB_TOKEN" value="6e5da69c457f23c732ae810dffb7070d0e6dd240" />
+        <env name="SSH_PRIVATE_KEY_PATH" value="bin/won-rsa" />
+      </envs>
+      <kind value="FILE" />
+      <filePath value="$PROJECT_DIR$/src/main.go" />
+      <output_directory value="$PROJECT_DIR$/bin" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="1999" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1580980274804">
+      <screen x="1920" y="0" width="1280" height="689" />
+    </state>
+    <state x="1999" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1187.720/1920.0.1280.689@0.0.1187.720" timestamp="1580980274804" />
+    <state x="2245" y="197" key="EnvironmentVariablesDialog" timestamp="1580980269590">
+      <screen x="1920" y="0" width="1280" height="689" />
+    </state>
+    <state x="2245" y="197" key="EnvironmentVariablesDialog/0.0.1187.720/1920.0.1280.689@0.0.1187.720" timestamp="1580980269590" />
+    <state x="574" y="173" key="FileChooserDialogImpl" timestamp="1581619640104">
+      <screen x="0" y="0" width="1827" height="1080" />
+    </state>
+    <state x="373" y="115" key="FileChooserDialogImpl/0.0.1187.720/1920.0.1280.689@0.0.1187.720" timestamp="1580975269925" />
+    <state x="574" y="173" key="FileChooserDialogImpl/0.0.1827.1080@0.0.1827.1080" timestamp="1581619640104" />
+    <state width="1141" height="186" key="GridCell.Tab.0.bottom" timestamp="1581579225802">
+      <screen x="0" y="0" width="1187" height="720" />
+    </state>
+    <state width="1141" height="186" key="GridCell.Tab.0.bottom/0.0.1187.720/1920.0.1280.689@0.0.1187.720" timestamp="1581579225802" />
+    <state width="1235" height="176" key="GridCell.Tab.0.bottom/0.0.1187.720/1920.0.1280.689@1920.0.1280.689" timestamp="1580985622963" />
+    <state width="1141" height="186" key="GridCell.Tab.0.center" timestamp="1581579225802">
+      <screen x="0" y="0" width="1187" height="720" />
+    </state>
+    <state width="1141" height="186" key="GridCell.Tab.0.center/0.0.1187.720/1920.0.1280.689@0.0.1187.720" timestamp="1581579225802" />
+    <state width="1235" height="176" key="GridCell.Tab.0.center/0.0.1187.720/1920.0.1280.689@1920.0.1280.689" timestamp="1580985622963" />
+    <state width="1141" height="186" key="GridCell.Tab.0.left" timestamp="1581579225802">
+      <screen x="0" y="0" width="1187" height="720" />
+    </state>
+    <state width="1141" height="186" key="GridCell.Tab.0.left/0.0.1187.720/1920.0.1280.689@0.0.1187.720" timestamp="1581579225802" />
+    <state width="1235" height="176" key="GridCell.Tab.0.left/0.0.1187.720/1920.0.1280.689@1920.0.1280.689" timestamp="1580985622963" />
+    <state width="1141" height="186" key="GridCell.Tab.0.right" timestamp="1581579225802">
+      <screen x="0" y="0" width="1187" height="720" />
+    </state>
+    <state width="1141" height="186" key="GridCell.Tab.0.right/0.0.1187.720/1920.0.1280.689@0.0.1187.720" timestamp="1581579225802" />
+    <state width="1235" height="176" key="GridCell.Tab.0.right/0.0.1187.720/1920.0.1280.689@1920.0.1280.689" timestamp="1580985622963" />
+    <state x="94" y="3" key="SettingsEditor" timestamp="1580975241897">
+      <screen x="0" y="0" width="1187" height="720" />
+    </state>
+    <state x="94" y="3" key="SettingsEditor/0.0.1187.720/1920.0.1280.689@0.0.1187.720" timestamp="1580975241897" />
+    <state x="256" y="41" width="672" height="678" key="search.everywhere.popup" timestamp="1580978933849">
+      <screen x="0" y="0" width="1187" height="720" />
+    </state>
+    <state x="256" y="41" width="672" height="678" key="search.everywhere.popup/0.0.1187.720/1920.0.1280.689@0.0.1187.720" timestamp="1580978933849" />
+  </component>
+</project>

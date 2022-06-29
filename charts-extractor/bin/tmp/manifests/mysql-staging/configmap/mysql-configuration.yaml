@@ -1,0 +1,17 @@
+apiVersion: v1
+data:
+  mysql.cnf: |-
+    [mysqld]
+    max_allowed_packet=512M
+    skip-name-resolve
+    connect_timeout=10
+kind: ConfigMap
+metadata:
+  creationTimestamp: "2019-12-20T15:35:50Z"
+  labels:
+    io.cattle.field/appId: mysql
+  name: mysql-configuration
+  namespace: mysql-staging
+  resourceVersion: "20801477"
+  selfLink: /api/v1/namespaces/mysql-staging/configmaps/mysql-configuration
+  uid: 6695121c-233e-11ea-9852-42010a8000ff

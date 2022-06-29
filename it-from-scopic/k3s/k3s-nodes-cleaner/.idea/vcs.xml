@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="VcsDirectoryMappings">
+    <mapping directory="$PROJECT_DIR$/src/github.com/davecgh/go-spew" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/github.com/fatih/structs" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/github.com/go-logr/logr" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/github.com/gogo/protobuf" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/github.com/google/gofuzz" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/github.com/googleapis/gnostic" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/github.com/imdario/mergo" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/github.com/jmespath/go-jmespath" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/github.com/json-iterator/go" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/github.com/konsorten/go-windows-terminal-sequences" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/github.com/kubernetes/client-go" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/github.com/modern-go/concurrent" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/github.com/modern-go/reflect2" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/github.com/sirupsen/logrus" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/github.com/thoas/go-funk" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/golang.org/x/crypto" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/golang.org/x/oauth2" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/golang.org/x/time" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/gopkg.in/inf.v0" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/k8s.io/api" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/k8s.io/apimachinery" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/k8s.io/client-go" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/k8s.io/klog" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/k8s.io/utils" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/sigs.k8s.io/structured-merge-diff" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/sigs.k8s.io/yaml" vcs="Git" />
+  </component>
+</project>

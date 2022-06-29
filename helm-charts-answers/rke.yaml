@@ -1,0 +1,28 @@
+nodes:
+  - address: 
+    internal_address: 
+    user: ec2-user
+    ssh_key_path: ~/.ssh/id_rsa
+    role: [controlplane,worker,etcd]
+
+  - address: 
+    internal_address: 
+    user: ec2-user
+    ssh_key_path: ~/.ssh/id_rsa
+    role: [controlplane,worker,etcd]
+
+  - address: 
+    internal_address: 
+    user: ec2-user
+    ssh_key_path: ~/.ssh/id_rsa
+    role: [controlplane,worker,etcd]
+
+services:
+  etcd:
+    snapshot: true
+    creation: 6h
+    retention: 24h
+
+172.31.92.90
+172.31.37.122
+172.31.64.205

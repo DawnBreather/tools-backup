@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="95953cb4-30cd-432b-9e1a-934e52786c97" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Go File" />
+      </list>
+    </option>
+  </component>
+  <component name="GOROOT" path="C:\Go" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/src/github.com/sirupsen/logrus" />
+  </component>
+  <component name="GoLibraries">
+    <option name="indexEntireGoPath" value="false" />
+    <option name="urls">
+      <list>
+        <option value="file://$PROJECT_DIR$" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="1XwcyUAy1ozEOb9mrafqAs0bS6q" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultGoTemplateProperty" value="Go File" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="configurable.Global.GOPATH.is.expanded" value="true" />
+    <property name="configurable.Module.GOPATH.is.expanded" value="false" />
+    <property name="configurable.Project.GOPATH.is.expanded" value="true" />
+    <property name="go.import.settings.migrated" value="true" />
+    <property name="go.tried.to.enable.integration.vgo.integrator" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="settings.editor.selected.configurable" value="com.goide.configuration.GoLibrariesConfigurableProvider" />
+  </component>
+  <component name="RunManager">
+    <configuration name="go build main.go" type="GoApplicationRunConfiguration" factoryName="Go Application" nameIsGenerated="true">
+      <module name="aws-asg-lifecycle-handler" />
+      <working_directory value="$PROJECT_DIR$/" />
+      <go_parameters value="-i" />
+      <kind value="FILE" />
+      <filePath value="$PROJECT_DIR$/src/main.go" />
+      <output_directory value="$PROJECT_DIR$/bin" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="47" y="8" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1581967572362">
+      <screen x="0" y="0" width="1187" height="720" />
+    </state>
+    <state x="47" y="8" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1187.720@0.0.1187.720" timestamp="1581967572362" />
+    <state x="323" y="57" key="FileChooserDialogImpl" timestamp="1581967567070">
+      <screen x="0" y="0" width="1187" height="720" />
+    </state>
+    <state x="323" y="57" key="FileChooserDialogImpl/0.0.1187.720@0.0.1187.720" timestamp="1581967567070" />
+    <state width="1129" height="162" key="GridCell.Tab.0.bottom" timestamp="1581968280874">
+      <screen x="0" y="0" width="1187" height="720" />
+    </state>
+    <state width="1129" height="162" key="GridCell.Tab.0.bottom/0.0.1187.720@0.0.1187.720" timestamp="1581968280874" />
+    <state width="1129" height="162" key="GridCell.Tab.0.center" timestamp="1581968280873">
+      <screen x="0" y="0" width="1187" height="720" />
+    </state>
+    <state width="1129" height="162" key="GridCell.Tab.0.center/0.0.1187.720@0.0.1187.720" timestamp="1581968280873" />
+    <state width="1129" height="162" key="GridCell.Tab.0.left" timestamp="1581968280873">
+      <screen x="0" y="0" width="1187" height="720" />
+    </state>
+    <state width="1129" height="162" key="GridCell.Tab.0.left/0.0.1187.720@0.0.1187.720" timestamp="1581968280873" />
+    <state width="1129" height="162" key="GridCell.Tab.0.right" timestamp="1581968280874">
+      <screen x="0" y="0" width="1187" height="720" />
+    </state>
+    <state width="1129" height="162" key="GridCell.Tab.0.right/0.0.1187.720@0.0.1187.720" timestamp="1581968280874" />
+    <state x="0" y="0" key="SettingsEditor" timestamp="1584276840512">
+      <screen x="0" y="0" width="1215" height="720" />
+    </state>
+    <state x="0" y="0" key="SettingsEditor/0.0.1187.720@0.0.1187.720" timestamp="1581960908572" />
+    <state x="0" y="0" key="SettingsEditor/0.0.1215.720/1920.0.1920.1050@0.0.1215.720" timestamp="1584276840512" />
+  </component>
+</project>

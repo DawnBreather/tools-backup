@@ -1,0 +1,19 @@
+image.pullPolicy=Always
+ingress.enabled=true
+ingress.hosts[0].name=sonar.aws.rcom-bflw.projects.epam.com
+persistence.enabled=true
+persistence.size=50Gi
+database.type=postgresql
+postgresql.enabled=true
+postgresql.postgresUser=sonarUser
+postgresql.postgresPassword=sonarPass
+postgresql.postgresDatabase=sonarDB
+postgresql.service.port=5432
+persistence.accessMode=ReadWriteOnce
+
+sonarProperties
+plugins.install=SonarJava,JDepend,SpotBugs,Checkstyle,PMD
+
+plugins.resources=
+plugins.initContainerImage=
+PMD (sonar plub

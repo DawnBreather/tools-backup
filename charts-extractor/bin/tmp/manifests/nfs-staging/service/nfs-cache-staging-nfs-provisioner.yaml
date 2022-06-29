@@ -1,0 +1,41 @@
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: "2019-12-01T23:21:04Z"
+  labels:
+    app: nfs-provisioner
+    chart: nfs-provisioner-0.3.0
+    heritage: Tiller
+    io.cattle.field/appId: nfs-cache-staging
+    release: nfs-cache-staging
+  name: nfs-cache-staging-nfs-provisioner
+  namespace: nfs-staging
+  resourceVersion: "4720635"
+  selfLink: /api/v1/namespaces/nfs-staging/services/nfs-cache-staging-nfs-provisioner
+  uid: 3f0d0dbc-1491-11ea-8d66-42010a8000a1
+spec:
+  clusterIP: 10.28.8.130
+  ports:
+  - name: nfs
+    port: 2049
+    protocol: TCP
+    targetPort: nfs
+  - name: mountd
+    port: 20048
+    protocol: TCP
+    targetPort: mountd
+  - name: rpcbind-tcp
+    port: 51413
+    protocol: TCP
+    targetPort: rpcbind-tcp
+  - name: rpcbind-udp
+    port: 51413
+    protocol: UDP
+    targetPort: rpcbind-udp
+  selector:
+    app: nfs-provisioner
+    release: nfs-cache-staging
+  sessionAffinity: None
+  type: ClusterIP
+status:
+  loadBalancer: {}

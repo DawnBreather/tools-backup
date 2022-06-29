@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="ed35649f-a13c-44f4-9c7e-53f7ba244831" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/src/k8s.io/client-go/rest/request.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/k8s.io/client-go/rest/request.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/k8s.io/client-go/transport/round_trippers.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/k8s.io/client-go/transport/round_trippers.go" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Go File" />
+      </list>
+    </option>
+  </component>
+  <component name="GOROOT" path="C:\Go" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/src/k8s.io/client-go" />
+  </component>
+  <component name="GoLibraries">
+    <option name="urls">
+      <list>
+        <option value="file://$PROJECT_DIR$" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="1ZALRIoddssyk2dBDA5gPubnlQG" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultGoTemplateProperty" value="Go File" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="configurable.Global.GOPATH.is.expanded" value="true" />
+    <property name="configurable.Module.GOPATH.is.expanded" value="false" />
+    <property name="configurable.Project.GOPATH.is.expanded" value="true" />
+    <property name="go.import.settings.migrated" value="true" />
+    <property name="go.tried.to.enable.integration.dep.integrator" value="true" />
+    <property name="go.tried.to.enable.integration.vgo.integrator" value="true" />
+    <property name="go.vendoring.notification.had.been.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/connectors/aws/idynamodb" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="settings.editor.selected.configurable" value="com.goide.configuration.GoLibrariesConfigurableProvider" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\lab\sp\it\k3s\k3s-nodes-cleaner\src\connectors\aws\idynamodb" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\lab\sp\it\k3s\k3s-nodes-cleaner\src\processors" />
+      <recent name="C:\lab\sp\it\k3s\k3s-nodes-cleaner\src\common\models" />
+      <recent name="C:\lab\sp\it\k3s\k3s-nodes-cleaner\src\connectors" />
+      <recent name="C:\lab\sp\it\k3s\k3s-nodes-cleaner\src" />
+      <recent name="C:\lab\sp\it\k3s\k3s-nodes-cleaner\src\aws" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Go Build.go build for linux">
+    <configuration name="go build for linux" type="GoApplicationRunConfiguration" factoryName="Go Application">
+      <module name="k3s-nodes-cleaner" />
+      <working_directory value="$PROJECT_DIR$/bin" />
+      <go_parameters value="-i" />
+      <envs>
+        <env name="KUBECONFIG" value="c:\lab\sp\it\k3s\k3s-nodes-cleaner\bin\kubeconfig" />
+        <env name="AWS_ACCESS_KEY_ID" value="AKIARCEAI5Q5CLCEZCWS" />
+        <env name="AWS_SECRET_ACCESS_KEY" value="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" />
+        <env name="AWS_DEFAULT_REGION" value="us-east-1" />
+        <env name="WORKFLOW_CHECK_INTERVAL" value="5" />
+        <env name="GOOS" value="linux" />
+      </envs>
+      <kind value="FILE" />
+      <filePath value="$PROJECT_DIR$/src/main.go" />
+      <output_directory value="$PROJECT_DIR$/bin" />
+      <option name="run" value="false" />
+      <method v="2" />
+    </configuration>
+    <configuration name="go build main.go" type="GoApplicationRunConfiguration" factoryName="Go Application" nameIsGenerated="true">
+      <module name="k3s-nodes-cleaner" />
+      <working_directory value="$PROJECT_DIR$/bin" />
+      <go_parameters value="-i" />
+      <envs>
+        <env name="KUBECONFIG" value="c:\lab\sp\it\k3s\k3s-nodes-cleaner\bin\kubeconfig" />
+        <env name="AWS_ACCESS_KEY_ID" value="AKIARCEAI5Q5CLCEZCWS" />
+        <env name="AWS_SECRET_ACCESS_KEY" value="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" />
+        <env name="AWS_DEFAULT_REGION" value="us-east-1" />
+        <env name="WORKFLOW_CHECK_INTERVAL" value="5" />
+      </envs>
+      <kind value="FILE" />
+      <filePath value="$PROJECT_DIR$/src/main.go" />
+      <output_directory value="$PROJECT_DIR$/bin" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Go Build.go build main.go" />
+      <item itemvalue="Go Build.go build for linux" />
+    </list>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="2371" y="99" key="#Go_Modules_(vgo)" timestamp="1584470811885">
+      <screen x="1920" y="0" width="1920" height="1050" />
+    </state>
+    <state x="2371" y="99" key="#Go_Modules_(vgo)/0.0.1215.720/1920.0.1920.1050@1920.0.1920.1050" timestamp="1584470811885" />
+    <state x="2371" y="99" key="#Notifications" timestamp="1584470806932">
+      <screen x="1920" y="0" width="1920" height="1050" />
+    </state>
+    <state x="2371" y="99" key="#Notifications/0.0.1215.720/1920.0.1920.1050@1920.0.1920.1050" timestamp="1584470806932" />
+    <state x="2335" y="69" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1584656013021">
+      <screen x="1920" y="0" width="1920" height="1050" />
+    </state>
+    <state x="2335" y="69" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1212.720/1920.0.1920.1050@1920.0.1920.1050" timestamp="1584656013021" />
+    <state x="62" y="8" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1215.720/1920.0.1920.1050@0.0.1215.720" timestamp="1584277067620" />
+    <state x="2018" y="12" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1215.720/1920.0.1920.1050@1920.0.1920.1050" timestamp="1584479729506" />
+    <state x="2600" y="309" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1584477968200">
+      <screen x="1920" y="0" width="1920" height="1050" />
+    </state>
+    <state x="2600" y="309" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1215.720/1920.0.1920.1050@1920.0.1920.1050" timestamp="1584477968200" />
+    <state width="926" height="582" key="DebuggerActiveHint" timestamp="1584485553774">
+      <screen x="1920" y="0" width="1920" height="1050" />
+    </state>
+    <state width="926" height="582" key="DebuggerActiveHint/0.0.1215.720/1920.0.1920.1050@1920.0.1920.1050" timestamp="1584485553774" />
+    <state x="2237" y="72" key="EnvironmentVariablesDialog" timestamp="1584656011213">
+      <screen x="1920" y="0" width="1920" height="1050" />
+    </state>
+    <state x="2237" y="72" key="EnvironmentVariablesDialog/0.0.1212.720/1920.0.1920.1050@1920.0.1920.1050" timestamp="1584656011213" />
+    <state x="2237" y="72" key="EnvironmentVariablesDialog/0.0.1215.720/1920.0.1920.1050@1920.0.1920.1050" timestamp="1584479728474" />
+    <state x="2453" y="83" key="FileChooserDialogImpl" timestamp="1584301533505">
+      <screen x="1920" y="0" width="1920" height="1050" />
+    </state>
+    <state x="337" y="57" key="FileChooserDialogImpl/0.0.1215.720/1920.0.1920.1050@0.0.1215.720" timestamp="1584277060159" />
+    <state x="2453" y="83" key="FileChooserDialogImpl/0.0.1215.720/1920.0.1920.1050@1920.0.1920.1050" timestamp="1584301533505" />
+    <state width="1154" height="279" key="GridCell.Tab.0.bottom" timestamp="1585075563133">
+      <screen x="0" y="0" width="1211" height="720" />
+    </state>
+    <state width="1863" height="279" key="GridCell.Tab.0.bottom/0.0.1211.720/1920.0.1920.1050@1920.0.1920.1050" timestamp="1584817675362" />
+    <state width="1154" height="279" key="GridCell.Tab.0.bottom/0.0.1211.720@0.0.1211.720" timestamp="1585075563133" />
+    <state width="1863" height="279" key="GridCell.Tab.0.bottom/0.0.1212.720/1920.0.1920.1050@1920.0.1920.1050" timestamp="1584660090774" />
+    <state width="1863" height="279" key="GridCell.Tab.0.bottom/0.0.1215.720/1920.0.1920.1050@1920.0.1920.1050" timestamp="1584486618669" />
+    <state width="1154" height="279" key="GridCell.Tab.0.center" timestamp="1585075563132">
+      <screen x="0" y="0" width="1211" height="720" />
+    </state>
+    <state width="1863" height="279" key="GridCell.Tab.0.center/0.0.1211.720/1920.0.1920.1050@1920.0.1920.1050" timestamp="1584817675362" />
+    <state width="1154" height="279" key="GridCell.Tab.0.center/0.0.1211.720@0.0.1211.720" timestamp="1585075563132" />
+    <state width="1863" height="279" key="GridCell.Tab.0.center/0.0.1212.720/1920.0.1920.1050@1920.0.1920.1050" timestamp="1584660090774" />
+    <state width="1863" height="279" key="GridCell.Tab.0.center/0.0.1215.720/1920.0.1920.1050@1920.0.1920.1050" timestamp="1584486618669" />
+    <state width="1154" height="279" key="GridCell.Tab.0.left" timestamp="1585075563131">
+      <screen x="0" y="0" width="1211" height="720" />
+    </state>
+    <state width="1863" height="279" key="GridCell.Tab.0.left/0.0.1211.720/1920.0.1920.1050@1920.0.1920.1050" timestamp="1584817675362" />
+    <state width="1154" height="279" key="GridCell.Tab.0.left/0.0.1211.720@0.0.1211.720" timestamp="1585075563131" />
+    <state width="1863" height="279" key="GridCell.Tab.0.left/0.0.1212.720/1920.0.1920.1050@1920.0.1920.1050" timestamp="1584660090774" />
+    <state width="1863" height="279" key="GridCell.Tab.0.left/0.0.1215.720/1920.0.1920.1050@1920.0.1920.1050" timestamp="1584486618669" />
+    <state width="1154" height="279" key="GridCell.Tab.0.right" timestamp="1585075563132">
+      <screen x="0" y="0" width="1211" height="720" />
+    </state>
+    <state width="1863" height="279" key="GridCell.Tab.0.right/0.0.1211.720/1920.0.1920.1050@1920.0.1920.1050" timestamp="1584817675362" />
+    <state width="1154" height="279" key="GridCell.Tab.0.right/0.0.1211.720@0.0.1211.720" timestamp="1585075563132" />
+    <state width="1863" height="279" key="GridCell.Tab.0.right/0.0.1212.720/1920.0.1920.1050@1920.0.1920.1050" timestamp="1584660090774" />
+    <state width="1863" height="279" key="GridCell.Tab.0.right/0.0.1215.720/1920.0.1920.1050@1920.0.1920.1050" timestamp="1584486618669" />
+    <state width="1863" height="336" key="GridCell.Tab.1.bottom" timestamp="1584485741914">
+      <screen x="1920" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1863" height="336" key="GridCell.Tab.1.bottom/0.0.1215.720/1920.0.1920.1050@1920.0.1920.1050" timestamp="1584485741914" />
+    <state width="1863" height="336" key="GridCell.Tab.1.center" timestamp="1584485741913">
+      <screen x="1920" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1863" height="336" key="GridCell.Tab.1.center/0.0.1215.720/1920.0.1920.1050@1920.0.1920.1050" timestamp="1584485741913" />
+    <state width="1863" height="336" key="GridCell.Tab.1.left" timestamp="1584485741912">
+      <screen x="1920" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1863" height="336" key="GridCell.Tab.1.left/0.0.1215.720/1920.0.1920.1050@1920.0.1920.1050" timestamp="1584485741912" />
+    <state width="1863" height="336" key="GridCell.Tab.1.right" timestamp="1584485741914">
+      <screen x="1920" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1863" height="336" key="GridCell.Tab.1.right/0.0.1215.720/1920.0.1920.1050@1920.0.1920.1050" timestamp="1584485741914" />
+    <state x="1920" y="0" key="SettingsEditor" timestamp="1584647450051">
+      <screen x="1920" y="0" width="1920" height="1050" />
+    </state>
+    <state x="1920" y="0" key="SettingsEditor/0.0.1212.720/1920.0.1920.1050@1920.0.1920.1050" timestamp="1584647450051" />
+    <state x="0" y="0" key="SettingsEditor/0.0.1215.720/1920.0.1920.1050@0.0.1215.720" timestamp="1584277018866" />
+    <state x="1920" y="0" key="SettingsEditor/0.0.1215.720/1920.0.1920.1050@1920.0.1920.1050" timestamp="1584472225415" />
+    <state x="2459" y="15" width="840" height="1034" key="search.everywhere.popup" timestamp="1584281941309">
+      <screen x="1920" y="0" width="1920" height="1050" />
+    </state>
+    <state x="2459" y="15" width="840" height="1034" key="search.everywhere.popup/0.0.1215.720/1920.0.1920.1050@1920.0.1920.1050" timestamp="1584281941309" />
+  </component>
+</project>

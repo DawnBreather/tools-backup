@@ -1,0 +1,1 @@
+aws ec2 describe-instances --region us-east-1 --query 'Reservations[*].Instances[*].{ID:InstanceId, type:InstanceType, launched:LaunchTime, name:Tags[?Key==`Name`].Value[], privateIP:PrivateIpAddress}' --filters "Name=tag:Name,Values=rcom-rancher-ha" "Name=instance-state-code,Values=16"

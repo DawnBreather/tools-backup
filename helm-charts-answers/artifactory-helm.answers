@@ -1,0 +1,7 @@
+serviceAccount.create=true
+serviceAccount.name=service
+ingress.enabled=true
+ingress.hosts=[artifactory.aws.rcom-chtr.projects.epam.com]
+artifactory.persistence.enabled=true
+artifactory.persistence.size=200Gi
+artifactory.persistence.accessMode=ReadWriteOnce

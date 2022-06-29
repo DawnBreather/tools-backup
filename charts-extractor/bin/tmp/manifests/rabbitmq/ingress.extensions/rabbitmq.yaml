@@ -1,0 +1,32 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  annotations:
+    field.cattle.io/publicEndpoints: '[{"addresses":["34.68.64.217"],"port":80,"protocol":"HTTP","serviceName":"rabbitmq:rabbitmq","ingressName":"rabbitmq:rabbitmq","hostname":"mq-staging.idcreator.com","path":"/","allNodes":false}]'
+    kubernetes.io/ingress.class: nginx
+  creationTimestamp: "2019-12-31T12:01:21Z"
+  generation: 1
+  labels:
+    app: rabbitmq
+    chart: rabbitmq-6.16.0
+    heritage: Tiller
+    io.cattle.field/appId: rabbitmq
+    release: rabbitmq
+  name: rabbitmq
+  namespace: rabbitmq
+  resourceVersion: "19355891"
+  selfLink: /apis/extensions/v1beta1/namespaces/rabbitmq/ingresses/rabbitmq
+  uid: 42a973a9-2bc5-11ea-9852-42010a8000ff
+spec:
+  rules:
+  - host: mq-staging.idcreator.com
+    http:
+      paths:
+      - backend:
+          serviceName: rabbitmq
+          servicePort: 15672
+        path: /
+status:
+  loadBalancer:
+    ingress:
+    - ip: 34.68.64.217

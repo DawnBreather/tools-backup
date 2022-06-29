@@ -1,0 +1,204 @@
+apiVersion: v1
+data:
+  ldif: |-
+    dn: dc=odms,dc=dev
+    dc: odms
+    o: ODMS
+    objectclass: top
+    objectclass: dcObject
+    objectclass: organization
+
+    dn: ou=SMOD_groups,dc=odms,dc=dev
+    objectclass: top
+    objectclass: organizationalUnit
+    ou: SMOD_groups
+
+    dn: ou=SMOD_users,dc=odms,dc=dev
+    objectclass: top
+    objectclass: organizationalUnit
+    ou: SMOD_users
+
+    dn: cn=admin,dc=odms,dc=dev
+    cn: admin
+    description: LDAP administrator
+    objectclass: simpleSecurityObject
+    objectclass: organizationalRole
+    userpassword: qwavQBW5MuqVnMSd
+
+    dn: cn=administrator,ou=SMOD_users,dc=odms,dc=dev
+    cn: administrator
+    givenname: super
+    objectclass: inetOrgPerson
+    objectclass: top
+    sn: administrator
+    uid: administrator
+    userpassword: iw8uYYAS4BiQi8FT
+
+    dn: cn=administrator2,ou=SMOD_users,dc=odms,dc=dev
+    cn: administrator2
+    givenname: super
+    objectclass: inetOrgPerson
+    objectclass: top
+    sn: administrator2
+    uid: administrator2
+    userpassword: tmzDEdZgeA8vYgB4
+
+    dn: cn=ert-staff,ou=SMOD_users,dc=odms,dc=dev
+    cn: ert-staff
+    givenname: super
+    objectclass: inetOrgPerson
+    objectclass: top
+    sn: ert-staff
+    uid: ert-staff
+    userpassword: 3ffP5ZpKJKqLAB3V
+
+    dn: cn=ert-staff2,ou=SMOD_users,dc=odms,dc=dev
+    cn: ert-staff2
+    givenname: super
+    objectclass: inetOrgPerson
+    objectclass: top
+    sn: ert-staff2
+    uid: ert-staff2
+    userpassword: 7n2kq6EfKSs9RNRG
+
+    dn: cn=superadministrator,ou=SMOD_users,dc=odms,dc=dev
+    cn: superadministrator
+    givenname: super
+    objectclass: inetOrgPerson
+    objectclass: top
+    sn: superadministrator
+    uid: superadministrator
+    userpassword: 5am7mVkY6Q3tYZXn
+
+    dn: cn=superadministrator2,ou=SMOD_users,dc=odms,dc=dev
+    cn: superadministrator2
+    givenname: super
+    objectclass: inetOrgPerson
+    objectclass: top
+    sn: superadministrator2
+    uid: superadministrator2
+    userpassword: Fs9LZBbspw5FTdBx
+
+    dn: cn=supervisor,ou=SMOD_users,dc=odms,dc=dev
+    cn: supervisor
+    givenname: super
+    objectclass: inetOrgPerson
+    objectclass: top
+    sn: supervisor
+    uid: supervisor
+    userpassword: XPfxgM7jy4Hxc7p9
+
+    dn: cn=supervisor2,ou=SMOD_users,dc=odms,dc=dev
+    cn: supervisor2
+    givenname: super
+    objectclass: inetOrgPerson
+    objectclass: top
+    sn: supervisor2
+    uid: supervisor2
+    userpassword: U8wkR8GuNrjXzrWw
+
+    dn: cn=SMOD_administrator,ou=SMOD_groups,dc=odms,dc=dev
+    objectclass: top
+    objectclass: groupOfUniqueNames
+    cn: SMOD_administrator
+    ou: SMOD_administrator
+    uniqueMember: cn=administrator,ou=SMOD_users,dc=odms,dc=dev
+    uniqueMember: cn=administrator2,ou=SMOD_users,dc=odms,dc=dev
+
+    dn: cn=SMOD_ert-staff,ou=SMOD_groups,dc=odms,dc=dev
+    objectclass: top
+    objectclass: groupOfUniqueNames
+    cn: SMOD_ert-staff
+    ou: SMOD_ert-staff
+    uniqueMember: cn=ert-staff,ou=SMOD_users,dc=odms,dc=dev
+    uniqueMember: cn=ert-staff2,ou=SMOD_users,dc=odms,dc=dev
+
+    dn: cn=SMOD_superadministrator,ou=SMOD_groups,dc=odms,dc=dev
+    objectclass: top
+    objectclass: groupOfUniqueNames
+    cn: SMOD_superadministrator
+    ou: SMOD_superadministrator
+    uniqueMember: cn=superadministrator,ou=SMOD_users,dc=odms,dc=dev
+    uniqueMember: cn=superadministrator2,ou=SMOD_users,dc=odms,dc=dev
+
+    dn: cn=SMOD_supervisor,ou=SMOD_groups,dc=odms,dc=dev
+    objectclass: top
+    objectclass: groupOfUniqueNames
+    cn: SMOD_supervisor
+    ou: SMOD_supervisor
+    uniqueMember: cn=supervisor,ou=SMOD_users,dc=odms,dc=dev
+    uniqueMember: cn=supervisor2,ou=SMOD_users,dc=odms,dc=dev
+
+    dn: cn=SMOD_minsk,ou=SMOD_groups,dc=odms,dc=dev
+    objectclass: top
+    objectclass: groupOfUniqueNames
+    cn: SMOD_minsk
+    ou: SMOD_minsk
+    uniqueMember: cn=superadministrator,ou=SMOD_users,dc=odms,dc=dev
+    uniqueMember: cn=superadministrator2,ou=SMOD_users,dc=odms,dc=dev
+    uniqueMember: cn=ert-staff,ou=SMOD_users,dc=odms,dc=dev
+    uniqueMember: cn=ert-staff2,ou=SMOD_users,dc=odms,dc=dev
+
+    dn: cn=SMOD_brest,ou=SMOD_groups,dc=odms,dc=dev
+    objectclass: top
+    objectclass: groupOfUniqueNames
+    cn: SMOD_brest
+    ou: SMOD_brest
+    uniqueMember: cn=superadministrator,ou=SMOD_users,dc=odms,dc=dev
+    uniqueMember: cn=superadministrator2,ou=SMOD_users,dc=odms,dc=dev
+    uniqueMember: cn=supervisor,ou=SMOD_users,dc=odms,dc=dev
+    uniqueMember: cn=supervisor2,ou=SMOD_users,dc=odms,dc=dev
+
+    dn: cn=SMOD_gomel,ou=SMOD_groups,dc=odms,dc=dev
+    objectclass: top
+    objectclass: groupOfUniqueNames
+    cn: SMOD_gomel
+    ou: SMOD_gomel
+    uniqueMember: cn=superadministrator,ou=SMOD_users,dc=odms,dc=dev
+    uniqueMember: cn=superadministrator2,ou=SMOD_users,dc=odms,dc=dev
+
+    dn: cn=SMOD_grodno,ou=SMOD_groups,dc=odms,dc=dev
+    objectclass: top
+    objectclass: groupOfUniqueNames
+    cn: SMOD_grodno
+    ou: SMOD_grodno
+    uniqueMember: cn=superadministrator,ou=SMOD_users,dc=odms,dc=dev
+    uniqueMember: cn=superadministrator2,ou=SMOD_users,dc=odms,dc=dev
+
+    dn: cn=SMOD_mogilev,ou=SMOD_groups,dc=odms,dc=dev
+    objectclass: top
+    objectclass: groupOfUniqueNames
+    cn: SMOD_mogilev
+    ou: SMOD_mogilev
+    uniqueMember: cn=superadministrator,ou=SMOD_users,dc=odms,dc=dev
+    uniqueMember: cn=superadministrator2,ou=SMOD_users,dc=odms,dc=dev
+
+    dn: cn=SMOD_vitebsk,ou=SMOD_groups,dc=odms,dc=dev
+    objectclass: top
+    objectclass: groupOfUniqueNames
+    cn: SMOD_vitebsk
+    ou: SMOD_vitebsk
+    uniqueMember: cn=superadministrator,ou=SMOD_users,dc=odms,dc=dev
+    uniqueMember: cn=superadministrator2,ou=SMOD_users,dc=odms,dc=dev
+
+    dn: cn=SMOD_minskaya,ou=SMOD_groups,dc=odms,dc=dev
+    objectclass: top
+    objectclass: groupOfUniqueNames
+    cn: SMOD_minskaya
+    ou: SMOD_minskaya
+    uniqueMember: cn=superadministrator,ou=SMOD_users,dc=odms,dc=dev
+    uniqueMember: cn=superadministrator2,ou=SMOD_users,dc=odms,dc=dev
+    uniqueMember: cn=administrator,ou=SMOD_users,dc=odms,dc=dev
+    uniqueMember: cn=administrator2,ou=SMOD_users,dc=odms,dc=dev
+kind: ConfigMap
+metadata:
+  annotations:
+    field.cattle.io/creatorId: user-7p9hq
+  creationTimestamp: "2020-05-24T18:34:06Z"
+  labels:
+    cattle.io/creator: norman
+  name: ldap-schema
+  namespace: staging
+  resourceVersion: "7170894"
+  selfLink: /api/v1/namespaces/staging/configmaps/ldap-schema
+  uid: f3ed1f54-92a4-443a-8bb9-4303c5cfbf68
